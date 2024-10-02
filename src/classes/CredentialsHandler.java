@@ -1,0 +1,145 @@
+package classes;
+
+import classes.database.*;
+import classes.exceptions.*;
+
+import java.io.*;
+import java.nio.file.Paths;
+
+public class CredentialsHandler {
+    private static final String currentWorkingDirectory = Paths.get("").toAbsolutePath().toString();
+
+    public static boolean checkCompanyAlreadyExists(String company, boolean isAdmin) {        //This function is used to check if there exists a database manager file with the same name. Returns true if it exists, else false
+        try {
+            if (isAdmin) {
+                new FileReader(company + ".adm");
+                return true;
+            } else {
+                new FileReader(company + ".usrm");
+                return true;
+            }
+        } catch (FileNotFoundException e) {
+            return true;
+        }
+    }
+
+    public static boolean checkUsernameIsUnique(String username, boolean isAdmin) {       //This function is used to check if there exists a user with the same username. Returns true if unique, else false
+        try {
+            if (isAdmin) {
+                new FileReader(currentWorkingDirectory + "/admins/" + username + ".ad");
+                return false;
+            } else {
+                new FileReader(currentWorkingDirectory + "/users/" + username + ".usr");
+                return false;
+            }
+        } catch (FileNotFoundException e) {
+            return true;
+        }
+    }
+
+    public static void signUpAsAdmin(Admin admin) {        //This function is used to create .ad files for admins and register their entries onto the .adm file
+        File adminsDirectory = new File(currentWorkingDirectory + "/admins");
+        if (!adminsDirectory.exists()) {
+            adminsDirectory.mkdirs();
+        }
+
+        File adminFile = new File(currentWorkingDirectory + "/admins/" + admin.Username + ".ad");
+
+        try {
+            FileOutputStream fout = new FileOutputStream(adminFile);
+            ObjectOutputStream out = new ObjectOutputStream(fout);
+            out.writeObject(admin);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        File adminManager = new File(admin.CompanyName + ".adm");
+        try {
+            FileWriter fw = new FileWriter(adminManager);
+            fw.write(admin.Username + " " + admin.Password + "\n");
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void signUpAsUser(User user) {         //This function is used to login as User by checking the user files and the user manager file
+        File usersDirectory = new File(currentWorkingDirectory + "/users");
+        if (!usersDirectory.exists()) {
+            usersDirectory.mkdirs();
+        }
+
+        File userFile = new File(currentWorkingDirectory + "/users/" + user.Username + ".usr");
+
+        try {
+            FileOutputStream fout = new FileOutputStream(userFile);
+            ObjectOutputStream out = new ObjectOutputStream(fout);
+            out.writeObject(user);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        File userManager = new File(user.CompanyName + ".usrm");
+        try {
+            FileWriter fw = new FileWriter(userManager);
+            fw.append(user.Username + " " + user.Password + "\n");
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int login(String username, String password) throws InvalidCredentialsException, AccountNotFoundException {       //This function is used to login to the desired account. If admin account, it returns 0. If user account, it returns 1. If account was not found, an AccountNotFoundException is thrown. If a password mismatch is found, an InvalidCredentialsException is thrown. If any exceptions, -1 is returned.
+        boolean canBeUser = false;
+        if (!canBeUser) {
+            try {
+                FileInputStream fin = new FileInputStream(currentWorkingDirectory + "/admins/" + username + ".ad");
+                ObjectInputStream in = new ObjectInputStream(fin);
+                Admin admin = (Admin) in.readObject();
+
+                if (admin.Password.equals(password)) {
+                    return 0;
+                }
+                else {
+                    throw new InvalidCredentialsException();
+                }
+            }
+            catch (FileNotFoundException e) {
+                canBeUser = true;
+            }
+            catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (canBeUser) {
+            try {
+                FileInputStream fin = new FileInputStream(currentWorkingDirectory + "/users/" + username + ".usr");
+                ObjectInputStream out = new ObjectInputStream(fin);
+                User user = (User)out.readObject();
+
+                if (user.Password.equals(password)) {
+                    return 1;
+                }
+                else {
+                    throw new InvalidCredentialsException();
+                }
+            }
+            catch (FileNotFoundException e) {
+                throw new AccountNotFoundException();
+            }
+            catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return -1;
+    }
+}
