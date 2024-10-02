@@ -1,8 +1,5 @@
 package com.example.first;
 import classes.CredentialsHandler;
-import classes.database.Admin;
-import classes.exceptions.AccountNotFoundException;
-import classes.exceptions.InvalidCredentialsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
