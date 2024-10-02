@@ -1,0 +1,14 @@
+.root{
+    -fx-background-image:url('dragonscale.jpg');
+    -fx-background-size:cover;
+}
+
+.label{
+    -fx-font-size:19;
+    -fx-font-family:"Lucida Console";
+    -fx-text-fill:"white";
+}
+
+#titlelabel{
+    -fx-font-family:"Lucida Console";
+}
