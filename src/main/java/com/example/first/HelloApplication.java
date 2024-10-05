@@ -37,13 +37,7 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, SQLException {
         launch();
-        try {
-            DatabaseHandler.executeDatabaseManager("Ford");
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
     }
 }
