@@ -1,6 +1,7 @@
 package classes;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.sql.*;
 
@@ -23,14 +24,14 @@ public class DatabaseHandler {
         st = conn.createStatement();
     }
 
-    public static void executeDatabaseManager(String inDatabase){
+    public static void executeDatabaseManager(String inDatabase) throws IOException {
         database = inDatabase;
-        File dbm = new File(currentWorkingDirectory + "/" + database + ".dbm");
-        if(!dbm.exists()){
-            System.out.println("File created");
+        File dbm = new File(database + ".dbm");
+        if(dbm.createNewFile()){
+
         }
         else{
-            System.out.println("File Exists");
+
         }
     }
 
