@@ -1,22 +1,12 @@
 package com.example.first;
 
+import classes.DatabaseHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
-import javafx.scene.text.Font;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.*;
-
-
 
 public class HelloApplication extends Application {
     @Override
@@ -46,5 +36,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+
+        DatabaseHandler.executeDatabaseManager();
     }
 }
