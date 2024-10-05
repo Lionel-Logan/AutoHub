@@ -10,9 +10,9 @@
    <children>
       <TextField fx:id="a_userfield" layoutX="175.0" layoutY="150.0" />
       <TextField fx:id="a_cmp_namefield" layoutX="175.0" layoutY="225.0" />
-      <Label layoutX="50.0" layoutY="150.0" prefHeight="21.0" prefWidth="110.0" text="Username" />
-      <Label layoutX="50.0" layoutY="225.0" prefHeight="21.0" prefWidth="110.0" text="Company Name" />
-      <Label layoutX="50.0" layoutY="300.0" prefHeight="21.0" prefWidth="110.0" text="Password" />
+      <Label layoutX="40.0" layoutY="150.0" prefHeight="21.0" prefWidth="110.0" text="Username" />
+      <Label layoutX="40.0" layoutY="225.0" prefHeight="21.0" prefWidth="110.0" text="Company Name" />
+      <Label layoutX="40.0" layoutY="300.0" prefHeight="21.0" prefWidth="110.0" text="Password" />
       <Label layoutX="140.0" layoutY="70.0" prefHeight="21.0" prefWidth="120.0" text="LOGIN AS ADMIN" />
       <Button fx:id="signup" layoutX="160.0" layoutY="362.0" mnemonicParsing="false" onAction="#signup" text="signup" />
       <PasswordField fx:id="a_passfield" layoutX="175.0" layoutY="300.0" />

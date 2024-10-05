@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
@@ -25,7 +28,7 @@ public class HelloApplication extends Application {
         stage.setTitle("AutoHub");
         stage.setWidth(400);
         stage.setHeight(600);
-
+        stage.centerOnScreen();
         stage.setResizable(false);
 
 
@@ -36,7 +39,11 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         launch();
-
-        DatabaseHandler.executeDatabaseManager();
+        try {
+            DatabaseHandler.executeDatabaseManager("Ford");
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }

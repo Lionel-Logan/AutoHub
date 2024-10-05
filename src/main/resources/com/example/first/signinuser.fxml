@@ -9,19 +9,19 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.first.signupUserController_1">
    <children>
-      <TextField fx:id="u_userfield" layoutX="190.0" layoutY="100.0" />
-      <TextField fx:id="u_namefield" layoutX="190.0" layoutY="175.0" />
-      <Label layoutX="50.0" layoutY="475.0" text="RESIDENCE" />
-      <Label layoutX="50.0" layoutY="100.0" prefHeight="18.0" prefWidth="70.0" text="USERNAME" />
-      <Label layoutX="50.0" layoutY="175.0" text="NAME" />
-      <Label layoutX="50.0" layoutY="250.0" text="PASSWORD" />
-      <TextField fx:id="u_agefield" layoutX="190.0" layoutY="325.0" />
-      <TextField fx:id="u_residencefield" layoutX="190.0" layoutY="475.0" />
-      <Label layoutX="50.0" layoutY="325.0" text="AGE" />
-      <Label layoutX="50.0" layoutY="400.0" text="SEX" />
+      <TextField fx:id="u_userfield" layoutX="200.0" layoutY="100.0" />
+      <TextField fx:id="u_namefield" layoutX="200.0" layoutY="175.0" />
+      <Label layoutX="40.0" layoutY="475.0" text="RESIDENCE" />
+      <Label layoutX="40.0" layoutY="100.0" prefHeight="18.0" prefWidth="91.0" text="USERNAME" />
+      <Label layoutX="40.0" layoutY="175.0" text="NAME" />
+      <Label layoutX="40.0" layoutY="250.0" text="PASSWORD" />
+      <TextField fx:id="u_agefield" layoutX="200.0" layoutY="325.0" />
+      <TextField fx:id="u_residencefield" layoutX="200.0" layoutY="475.0" />
+      <Label layoutX="40.0" layoutY="325.0" text="AGE" />
+      <Label layoutX="40.0" layoutY="400.0" text="SEX" />
       <Label layoutX="140.0" layoutY="25.0" text="SIGN UP AS USER" />
       <Button layoutX="158.0" layoutY="525.0" mnemonicParsing="false" onAction="#signup_user_next" text="NEXT" />
-      <ChoiceBox fx:id="u_sexfield" layoutX="190.0" layoutY="400.0" prefWidth="150.0" />
-      <PasswordField fx:id="u_passfield" layoutX="185.0" layoutY="253.0" />
+      <ChoiceBox fx:id="u_sexfield" layoutX="200.0" layoutY="400.0" prefWidth="150.0" />
+      <PasswordField fx:id="u_passfield" layoutX="200.0" layoutY="253.0" />
    </children>
 </AnchorPane>

@@ -63,6 +63,8 @@ public class signupUserController_1 implements Initializable{
         root = loader.load();
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }

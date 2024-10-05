@@ -31,10 +31,13 @@ public class loginController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home.fxml"));
         root = loader.load();
 
-        homeController home = loader.getController();
-        home.display(username,pass);
+        //homeController home = loader.getController();
+        //home.display(username,pass);
         //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
         scene=new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -45,6 +48,7 @@ public class loginController {
         root = loader.load();
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
+
         stage.setScene(scene);
         stage.show();
     }

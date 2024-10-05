@@ -31,7 +31,10 @@ public class signinController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/signinadmin.fxml"));
         root = loader.load();
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+
         scene=new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
@@ -42,6 +45,8 @@ public class signinController{
         root = loader.load();
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
