@@ -12,35 +12,17 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+
 public class loginController {
     @FXML
     private TextField userfield;
     @FXML
     private PasswordField passfield;
-
     @FXML
+    public Stage stage;
+    public Scene scene;
+    public Parent root;
 
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    @FXML
-    private Circle mycircle;
-    private double x;
-    private double y;
-    public void up(ActionEvent e){
-        mycircle.setCenterY(y=y-1);
-    }
-
-    public void down(ActionEvent e){
-        mycircle.setCenterY(y=y+1);
-    }
-    public void right(ActionEvent e){
-        mycircle.setCenterX(x=x+1);
-    }
-    public void left(ActionEvent e){
-        mycircle.setCenterX(x=x-1);
-    }
 
     public void login(ActionEvent event)throws Exception{
 
