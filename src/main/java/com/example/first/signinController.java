@@ -1,4 +1,5 @@
 package com.example.first;
+import classes.CredentialsHandler;
 import classes.database.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,6 +66,8 @@ public class signinController{
         admin_object.Username=username;
         admin_object.Password=password;
         admin_object.CompanyName=company_name;
+
+        CredentialsHandler.signUpAsAdmin(admin_object);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/login.fxml"));
         root = loader.load();

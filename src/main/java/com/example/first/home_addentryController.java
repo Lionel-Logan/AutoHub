@@ -1,4 +1,6 @@
 package com.example.first;
+import classes.DatabaseHandler;
+import classes.database.Car;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -155,28 +157,49 @@ public class home_addentryController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
     public void done(ActionEvent event)throws Exception{
-            String id = idfield.getText();
-            String name = namefield.getText();
-            String cartype = ctypefield.getText();
-            String enginetype = etypefield.getText();
-            String transtype = ttypefield.getText();
-            String fueltype = ftypefield.getText();
-            String mileage = mileagefield.getText();
-            String price = pricefield.getText();
+        String id = idfield.getText();
+        String name = namefield.getText();
+        String cartype = ctypefield.getText();
+        String enginetype = etypefield.getText();
+        String transtype = ttypefield.getText();
+        String fueltype = ftypefield.getText();
+        String mileage = mileagefield.getText();
+        String price = pricefield.getText();
 
-            System.out.println("id="+id);
-            if(id.equals("")  || name.equals("") || cartype.equals("") || enginetype.equals("") || transtype.equals("") || fueltype.equals("") || mileage.equals("")|| price.equals("")){
-                confirm.setDisable(true);
-                message.setText("enter all credentials");
-            }
-            else{
-                confirm.setDisable(false);
-                message.setText("confirm to add to database");
-            }
-
+        if(id.equals("")  || name.equals("") || cartype.equals("") || enginetype.equals("") || transtype.equals("") || fueltype.equals("") || mileage.equals("")|| price.equals("")){
+            confirm.setDisable(true);
+            message.setText("enter all credentials");
+        }
+        else{
+            confirm.setDisable(false);
+            message.setText("confirm to add to database");
+        }
     }
 
+    public void confirm(ActionEvent event) throws Exception{
+        String id = idfield.getText();
+        String name = namefield.getText();
+        String cartype = ctypefield.getText();
+        String enginetype = etypefield.getText();
+        String transtype = ttypefield.getText();
+        String fueltype = ftypefield.getText();
+        String mileage = mileagefield.getText();
+        String price = pricefield.getText();
+
+        Car car = new Car();
+        car.CarID = id;
+        car.Name = name;
+        car.EngineType = enginetype;
+        car.CarType = cartype;
+        car.TransmissionType = transtype;
+        car.FuelCapacity = fueltype;
+        car.Mileage = mileage;
+        car.Price = price;
+
+        DatabaseHandler.generateSQLQuery("AddCar", car);
+    }
 
 
 }

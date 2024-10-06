@@ -1,7 +1,6 @@
 package com.example.first;
 import classes.CredentialsHandler;
 import classes.DatabaseHandler;
-import com.sun.marlin.Dasher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
