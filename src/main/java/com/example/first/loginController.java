@@ -1,5 +1,7 @@
 package com.example.first;
 import classes.CredentialsHandler;
+import classes.DatabaseHandler;
+import com.sun.marlin.Dasher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +41,10 @@ public class loginController {
         String mysqlusername = mysqluserfield.getText();
         String mysqlpass = mysqlpassfield.getText();
         String port = portno.getText();
+        String companyname = CredentialsHandler.login(username,pass);
+        DatabaseHandler.connectDatabase(mysqlusername,mysqlpass,companyname);
+
+
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home.fxml"));
         root = loader.load();

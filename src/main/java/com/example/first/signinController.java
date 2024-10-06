@@ -1,4 +1,5 @@
 package com.example.first;
+import classes.database.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,6 +60,12 @@ public class signinController{
         System.out.println("username="+username);
         System.out.println("password="+password);
         System.out.println("companyname="+company_name);
+
+        Admin admin_object = new Admin();
+        admin_object.Username=username;
+        admin_object.Password=password;
+        admin_object.CompanyName=company_name;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/login.fxml"));
         root = loader.load();
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();

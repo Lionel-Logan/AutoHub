@@ -1,4 +1,5 @@
 package com.example.first;
+import classes.database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,7 +59,15 @@ public class signupUserController_1 implements Initializable{
         String password = u_passfield.getText();
         String age = u_agefield.getText();
         String residence = u_residencefield.getText();
-        System.out.println("sex="+sex);
+
+        User user_object = new User();
+        user_object.Username=username;
+        user_object.Password=password;
+        user_object.name=name;
+        user_object.Age=age;
+        user_object.Place=residence;
+        user_object.Sex=sex;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/signup_user_final.fxml"));
         root = loader.load();
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();

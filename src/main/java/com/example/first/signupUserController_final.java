@@ -32,7 +32,7 @@ public class signupUserController_final {
         String companyname = companyfield.getText();
         String  showroomname = showroomfield.getText();
         String department = departmentfield.getText();
-        System.out.println(companyname);
+
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/example/first/login.fxml"));
         root=loader.load();
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
