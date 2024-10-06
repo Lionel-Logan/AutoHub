@@ -1,0 +1,4 @@
+.root{
+    -fx-background-image: url('videoplayback.gif');
+    -fx-background-size:cover;
+}
