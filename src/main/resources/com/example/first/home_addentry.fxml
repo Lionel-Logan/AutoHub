@@ -179,7 +179,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="confirm" layoutX="484.0" layoutY="485.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #0a4969;" text="Confirm" textFill="WHITE">
+                        <Button fx:id="confirm" layoutX="484.0" layoutY="485.0" mnemonicParsing="false" onAction="#confirm" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #0a4969;" text="Confirm" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
