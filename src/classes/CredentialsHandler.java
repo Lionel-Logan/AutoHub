@@ -105,7 +105,7 @@ public class CredentialsHandler {
         }
     }
 
-    public static Object login(String username, String password) throws InvalidCredentialsException, AccountNotFoundException {       //This function is used to login to the desired account. If admin account, it returns 0. If user account, it returns 1. If account was not found, an AccountNotFoundException is thrown. If a password mismatch is found, an InvalidCredentialsException is thrown. If any exceptions, -1 is returned.
+    public static String login(String username, String password) throws InvalidCredentialsException, AccountNotFoundException {       //This function is used to login to the desired account. If admin account, it returns 0. If user account, it returns 1. If account was not found, an AccountNotFoundException is thrown. If a password mismatch is found, an InvalidCredentialsException is thrown. If any exceptions, -1 is returned.
         boolean canBeUser = false;
         if (!canBeUser) {
             try {
@@ -114,7 +114,7 @@ public class CredentialsHandler {
                 Admin admin = (Admin) in.readObject();
 
                 if (admin.Password.equals(password)) {
-                    return admin;
+                    return admin.CompanyName;
                 }
                 else {
                     throw new InvalidCredentialsException();
@@ -138,7 +138,7 @@ public class CredentialsHandler {
                 User user = (User)out.readObject();
 
                 if (user.Password.equals(password)) {
-                    return user;
+                    return user.CompanyName;
                 }
                 else {
                     throw new InvalidCredentialsException();
