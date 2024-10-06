@@ -33,9 +33,6 @@ public class HelloApplication extends Application {
         stage.setHeight(600);
         stage.centerOnScreen();
         stage.setResizable(false);
-
-
-
         stage.setScene(scenel);
         stage.show();
     }
