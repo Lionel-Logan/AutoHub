@@ -79,7 +79,7 @@ public class home_addentryController implements Initializable {
         confirm.setDisable(true);
         showroombox.setVisible(true);;
         companybox.setVisible(false);
-        slider.setTranslateX(-176);
+        slider.setTranslateX(0);
 
         menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();

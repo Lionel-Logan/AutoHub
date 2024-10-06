@@ -53,7 +53,7 @@ public class homeSliderController implements Initializable {
         //});
         showroombox.setVisible(false);;
         companybox.setVisible(false);
-        slider.setTranslateX(-176);
+        slider.setTranslateX(0);
 
         menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
