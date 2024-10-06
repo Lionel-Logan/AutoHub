@@ -12,12 +12,20 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import javax.xml.stream.events.DTD;
+
 
 public class loginController {
     @FXML
     private TextField userfield;
     @FXML
     private PasswordField passfield;
+    @FXML
+    private TextField mysqluserfield;
+    @FXML
+    private PasswordField mysqlpassfield;
+    @FXML
+    private TextField portno;
     @FXML
     public Stage stage;
     public Scene scene;
@@ -28,6 +36,10 @@ public class loginController {
 
         String username = userfield.getText();
         String pass = passfield.getText();
+        String mysqlusername = mysqluserfield.getText();
+        String mysqlpass = mysqlpassfield.getText();
+        String port = portno.getText();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home.fxml"));
         root = loader.load();
 

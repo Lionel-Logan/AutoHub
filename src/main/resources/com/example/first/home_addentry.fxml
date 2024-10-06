@@ -184,7 +184,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                        <Label fx:id="message" layoutX="443.0" layoutY="548.0">
+                        <Label fx:id="message" layoutX="384.0" layoutY="544.0" prefHeight="21.0" prefWidth="200.0">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
