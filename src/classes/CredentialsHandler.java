@@ -9,6 +9,23 @@ import java.nio.file.Paths;
 public class CredentialsHandler {
     private static final String currentWorkingDirectory = Paths.get("").toAbsolutePath().toString();
 
+    public static void initialize(){    //This function is to be called everytime the application is launched
+        File adminsDirectory = new File(currentWorkingDirectory + "/admins");
+        if (!adminsDirectory.exists()) {
+            adminsDirectory.mkdirs();
+        }
+
+        File usersDirectory = new File(currentWorkingDirectory + "/users");
+        if (!usersDirectory.exists()) {
+            usersDirectory.mkdirs();
+        }
+
+        File imagesDirectory = new File(currentWorkingDirectory + "/images");
+        if(!imagesDirectory.exists()){
+            imagesDirectory.mkdirs();
+        }
+    }
+
     public static boolean checkCompanyAlreadyExists(String company, boolean isAdmin) {        //This function is used to check if there exists a database manager file with the same name. Returns true if it exists, else false
         try {
             if (isAdmin) {
@@ -37,12 +54,14 @@ public class CredentialsHandler {
         }
     }
 
-    public static void signUpAsAdmin(Admin admin) {        //This function is used to create .ad files for admins and register their entries onto the .adm file
-        File adminsDirectory = new File(currentWorkingDirectory + "/admins");
-        if (!adminsDirectory.exists()) {
-            adminsDirectory.mkdirs();
+    public static void initializeImageFolderFor(String carID, String carName){
+        File carDirectory = new File(currentWorkingDirectory + "/images/" + carID + "_" + carName);
+        if(!carDirectory.exists()){
+            carDirectory.mkdirs();
         }
+    }
 
+    public static void signUpAsAdmin(Admin admin) {        //This function is used to create .ad files for admins and register their entries onto the .adm file
         File adminFile = new File(currentWorkingDirectory + "/admins/" + admin.Username + ".ad");
 
         try {
@@ -65,11 +84,6 @@ public class CredentialsHandler {
     }
 
     public static void signUpAsUser(User user) {         //This function is used to login as User by checking the user files and the user manager file
-        File usersDirectory = new File(currentWorkingDirectory + "/users");
-        if (!usersDirectory.exists()) {
-            usersDirectory.mkdirs();
-        }
-
         File userFile = new File(currentWorkingDirectory + "/users/" + user.Username + ".usr");
 
         try {

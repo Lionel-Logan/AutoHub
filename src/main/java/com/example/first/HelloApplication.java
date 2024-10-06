@@ -1,6 +1,8 @@
 package com.example.first;
 
+import classes.CredentialsHandler;
 import classes.DatabaseHandler;
+import classes.database.Car;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +12,7 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Vector;
 
 public class HelloApplication extends Application {
     @Override
@@ -39,5 +42,29 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) throws IOException, SQLException {
         launch();
+        CredentialsHandler.initialize();
+
+        /*
+        DatabaseHandler.connectDatabase("root", "root", "Ford");
+
+        Car car = new Car();
+        car.Name = "Mustang";
+        car.CarID = "86";
+        car.Price = "140000";
+        car.Mileage = "17";
+        car.TransmissionType = "blah";
+        car.EngineType = "run";
+        car.CarType = "yum";
+        car.FuelCapacity = "17999";
+
+        DatabaseHandler.generateSQLQuery("AddCar", car);
+
+        Vector<Car> cars = DatabaseHandler.retrieveCars("All");
+        for(Car c : cars){
+            System.out.println(c.CarID);
+        }
+
+        DatabaseHandler.disconnectDatabase();
+        */
     }
 }
