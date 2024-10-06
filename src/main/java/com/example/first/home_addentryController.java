@@ -7,6 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -16,7 +19,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class homeSliderController implements Initializable {
+public class home_addentryController implements Initializable {
 
 
     @FXML
@@ -43,15 +46,36 @@ public class homeSliderController implements Initializable {
     public Scene scene;
     public Parent root;
 
+    @FXML
+    private TextField idfield;
+    @FXML
+    private TextField namefield;
+    @FXML
+    private TextField ctypefield;
+    @FXML
+    private TextField etypefield;
+    @FXML
+    private TextField ttypefield;
+    @FXML
+    private TextField ftypefield;
+    @FXML
+    private TextField mileagefield;
+    @FXML
+    private TextField pricefield;
+    @FXML
+    private Button confirm;
+    @FXML
+    private Label message;
 
 
-            ;
+    ;
 
     public void initialize(URL location, ResourceBundle resources){
         //exit.setOnMouseClicked(event ->{
         //    System.exit(0);
         //});
-        showroombox.setVisible(false);;
+        confirm.setDisable(true);
+        showroombox.setVisible(true);;
         companybox.setVisible(false);
         slider.setTranslateX(-176);
 
@@ -89,30 +113,15 @@ public class homeSliderController implements Initializable {
 
     }
 
-    public void showroom(ActionEvent event)throws Exception{
+    public void showroom(ActionEvent event){
         companybox.setVisible(false);
         showroombox.setVisible(true);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home_addentry.fxml"));
-        root = loader.load();
-
-        //homeController home = loader.getController();
-        //home.display(username,pass);
-        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
-        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setWidth(1100);
-        stage.setHeight(700);
-        stage.centerOnScreen();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
     }
 
     public void company(ActionEvent event){
         companybox.setVisible(true);
         showroombox.setVisible(false);
     }
-
     public void addentry(ActionEvent event)throws Exception{
         showroombox.setVisible(true);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home_addentry.fxml"));
@@ -146,5 +155,28 @@ public class homeSliderController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public void done(ActionEvent event)throws Exception{
+            String id = idfield.getText();
+            String name = namefield.getText();
+            String cartype = ctypefield.getText();
+            String enginetype = etypefield.getText();
+            String transtype = ttypefield.getText();
+            String fueltype = ftypefield.getText();
+            String mileage = mileagefield.getText();
+            String price = pricefield.getText();
+
+            System.out.println("id="+id);
+            if(id.equals("")  || name.equals("") || cartype.equals("") || enginetype.equals("") || transtype.equals("") || fueltype.equals("") || mileage.equals("")|| price.equals("")){
+                confirm.setDisable(true);
+                message.setText("enter all credentials");
+            }
+            else{
+                confirm.setDisable(false);
+                message.setText("confirm to add to database");
+            }
+
     }
 
+
+
+}

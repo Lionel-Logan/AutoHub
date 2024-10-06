@@ -16,7 +16,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class homeSliderController implements Initializable {
+public class home_updateentryController implements Initializable {
 
 
     @FXML
@@ -45,13 +45,13 @@ public class homeSliderController implements Initializable {
 
 
 
-            ;
+    ;
 
     public void initialize(URL location, ResourceBundle resources){
         //exit.setOnMouseClicked(event ->{
         //    System.exit(0);
         //});
-        showroombox.setVisible(false);;
+        showroombox.setVisible(true);;
         companybox.setVisible(false);
         slider.setTranslateX(-176);
 
@@ -105,14 +105,12 @@ public class homeSliderController implements Initializable {
         scene=new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     public void company(ActionEvent event){
         companybox.setVisible(true);
         showroombox.setVisible(false);
     }
-
     public void addentry(ActionEvent event)throws Exception{
         showroombox.setVisible(true);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home_addentry.fxml"));
@@ -146,5 +144,5 @@ public class homeSliderController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    }
 
+}
