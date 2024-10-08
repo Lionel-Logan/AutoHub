@@ -21,7 +21,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class home_addentryController implements Initializable {
+public class homeadmin_showrrom_addentryController implements Initializable {
 
 
     @FXML
@@ -126,7 +126,7 @@ public class home_addentryController implements Initializable {
     }
     public void addentry(ActionEvent event)throws Exception{
         showroombox.setVisible(true);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home_addentry.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
         root = loader.load();
 
         //homeController home = loader.getController();
@@ -143,12 +143,26 @@ public class home_addentryController implements Initializable {
 
     public void updateentry(ActionEvent event)throws Exception{
         showroombox.setVisible(true);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home_updateentry.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_updateentry.fxml"));
         root = loader.load();
 
         //homeController home = loader.getController();
         //home.display(username,pass);
         //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void viewcontent(ActionEvent event)throws Exception{
+        showroombox.setVisible(true);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
+        root = loader.load();
+
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setWidth(1100);
         stage.setHeight(700);
@@ -200,6 +214,9 @@ public class home_addentryController implements Initializable {
 
         DatabaseHandler.generateSQLQuery("AddCar", car);
     }
+
+
+
 
 
 }

@@ -3,7 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,32 +14,38 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.first.home_updateentryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.first.homeadmin_showroom_viewcontentController">
    <children>
       <BorderPane layoutX="200.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <AnchorPane fx:id="slider" prefHeight="335.0" prefWidth="133.0" style="-fx-background-color: #0a4969;" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="335.0" prefWidth="133.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutY="-25.0" prefHeight="654.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="slider" prefHeight="633.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="showroombutton" mnemonicParsing="false" onAction="#showroom" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #0a4969;" text="ShowRoom" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="companybutton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#company" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #0a4969;" text="Company" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font></Button>
-                        <Button layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #0a4969;" text="Account" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font></Button>
+                        <VBox prefHeight="633.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="showroombutton" mnemonicParsing="false" onAction="#showroom" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="ShowRoom">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="companybutton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#company" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="Company">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="Account">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </left>
@@ -77,14 +84,14 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="240.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewContents">
+                        <Button layoutX="240.0" layoutY="10.0" mnemonicParsing="false" onAction="#viewcontent" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewContents">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
                      </children>
                   </HBox>
-                  <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #0a4969;" />
+                  <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #fffdd0;" />
                   <HBox fx:id="companybox" layoutX="128.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="5.0" prefWidth="967.0" AnchorPane.topAnchor="35.0">
                      <children>
                         <Button fx:id="addentry1" layoutX="600.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewEmployee">
@@ -113,11 +120,22 @@
             </AnchorPane>
          </top>
          <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="root" stylesheets="@homepage.css" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane fx:id="updateentrypane" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TextField layoutX="148.0" layoutY="93.0" />
+                        <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="id" prefWidth="120.0" style="-fx-background-color: #fffdd0;" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="120.0" style="-fx-background-color: #fffdd0;" text="NAME" />
+                              <TableColumn fx:id="type" prefWidth="120.0" style="-fx-background-color: #fffdd0;" text="TYPE" />
+                              <TableColumn fx:id="engine" prefWidth="120.0" style="-fx-background-color: #fffdd0;" text="ENGINE" />
+                              <TableColumn fx:id="transmission" prefWidth="125.0" style="-fx-background-color: #fffdd0;" text="TRANSMISSION" />
+                              <TableColumn fx:id="fuel" prefWidth="120.0" style="-fx-background-color: #fffdd0;" text="FUEL" />
+                              <TableColumn fx:id="mileage" prefWidth="120.0" style="-fx-background-color: #fffdd0;" text="MILEAGE" />
+                              <TableColumn fx:id="price" prefWidth="120.0" style="-fx-background-color: #fffdd0;" text="PRICE" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
                </children>

@@ -1,6 +1,4 @@
 package com.example.first;
-import classes.CredentialsHandler;
-import classes.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,11 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-
-import javax.xml.stream.events.DTD;
 
 
 public class loginController {
@@ -45,7 +39,7 @@ public class loginController {
 
 
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin.fxml"));
         root = loader.load();
 
         //homeController home = loader.getController();
