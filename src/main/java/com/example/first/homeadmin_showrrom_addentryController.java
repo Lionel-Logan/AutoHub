@@ -212,7 +212,7 @@ public class homeadmin_showrrom_addentryController implements Initializable {
         car.Mileage = mileage;
         car.Price = price;
 
-        DatabaseHandler.generateSQLQuery("AddCar", car);
+        DatabaseHandler.generateSQLQuery("AddCar", car, "");
     }
 
 
