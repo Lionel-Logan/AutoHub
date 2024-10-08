@@ -37,16 +37,29 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
+    @Override
+    public void stop(){
+        try {
+            if (DatabaseHandler.isConnected) {
+                DatabaseHandler.disconnectDatabase();
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws IOException, SQLException {
         launch();
         CredentialsHandler.initialize();
 
         /*
-        DatabaseHandler.connectDatabase("root", "root", "Ford");
+        DatabaseHandler.connectDatabase("root", "root", "Audi");
+        DatabaseHandler.generateSQLQuery("DeleteCar", "9");
 
         Car car = new Car();
         car.Name = "Mustang";
-        car.CarID = "86";
+        car.CarID = "9";
         car.Price = "140000";
         car.Mileage = "17";
         car.TransmissionType = "blah";
@@ -54,13 +67,7 @@ public class HelloApplication extends Application {
         car.CarType = "yum";
         car.FuelCapacity = "17999";
 
-        DatabaseHandler.generateSQLQuery("AddCar", car);
-
-        Vector<Car> cars = DatabaseHandler.retrieveCars("All");
-        for(Car c : cars){
-            System.out.println(c.CarID);
-        }
-
+        DatabaseHandler.generateSQLQuery("UpdateCar", car, car.CarID);
         DatabaseHandler.disconnectDatabase();
         */
     }

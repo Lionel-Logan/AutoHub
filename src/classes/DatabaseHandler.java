@@ -15,6 +15,8 @@ public class DatabaseHandler {
     private static String url = "jdbc:mysql://localhost:3306/";
     private static String companyName = "";
 
+    public static boolean isConnected = false;
+
     private static Statement st;
     private static Connection conn;
     private static ResultSet rs;
@@ -34,10 +36,12 @@ public class DatabaseHandler {
         url += companyName;
         conn = DriverManager.getConnection(url, inUser, inPass);
         st = conn.createStatement();
+        isConnected = true;
     }
 
     public static void disconnectDatabase() throws SQLException {    //This function is to be called upon closing the application
         conn.close();
+        isConnected = false;
     }
 
     public static void executeDatabaseManager() throws IOException {  //This function is used to load the database manager file from local computers and synchronize databases across all remote computers
@@ -107,7 +111,7 @@ public class DatabaseHandler {
         }
     }
 
-    public static void updateDatabaseManager(String sql) throws IOException{
+    private static void updateDatabaseManager(String sql) throws IOException{
         File dbm = new File(companyName + ".dbm");
         if(dbm.exists()){
             FileWriter fw = new FileWriter(dbm, true);
@@ -121,7 +125,7 @@ public class DatabaseHandler {
         }
     }
 
-    public static int generateSQLQuery(String conditionString, String conditionInput) throws SQLException { //This is the function which generates the necessary SQL Query according to the condition code passed as parameter. 1 for true, 0 for false, -1 for exception
+    public static int generateSQLQuery(String conditionString, String conditionInput) throws SQLException, IOException { //This is the function which generates the necessary SQL Query according to the condition code passed as parameter. 1 for true, 0 for false, -1 for exception
         String sql = "";
         switch(conditionString){
             case "CheckShowroom":   //Returns true if the showroom does exist
@@ -154,12 +158,18 @@ public class DatabaseHandler {
                     return 0;
                 }
 
+            case "DeleteCar":
+                sql = "DELETE FROM Cars WHERE CAR_ID = " + conditionInput;
+                st.executeUpdate(sql);
+                updateDatabaseManager(sql + "\n");
+                return 1;
+
             default:
                 return -1;
         }
     }
 
-    public static int generateSQLQuery(String conditionString, Object obj) throws SQLException, IOException { //This is the function which generates the necessary SQL Query according to the condition code passed as parameter. 1 for true, 0 for false, -1 for exception
+    public static int generateSQLQuery(String conditionString, Object obj, String conditionInput) throws SQLException, IOException { //This is the function which generates the necessary SQL Query according to the condition code passed as parameter. 1 for true, 0 for false, -1 for exception
         String sql = "";
         switch(conditionString){
             case "AddCar":  //Adds a car and returns 1 upon completion
@@ -167,6 +177,19 @@ public class DatabaseHandler {
                 sql = "INSERT INTO Cars VALUES (" + car.CarID + ", '" + car.Name + "', '" + car.CarType + "', '" + car.EngineType + "', '" + car.TransmissionType + "', '" + car.FuelCapacity + "', '" + car.Mileage + "', '" + car.Price + "')";
                 st.executeUpdate(sql);
                 CredentialsHandler.initializeImageFolderFor(car.CarID, car.Name);
+                updateDatabaseManager(sql + "\n");
+                return 1;
+
+            case "UpdateCar":
+                Car car2 = (Car) obj;
+                rs = st.executeQuery("SELECT CAR_NAME FROM Cars WHERE CAR_ID = " + conditionInput);
+                String carName = "";
+                while(rs.next()){
+                    carName = rs.getString(1);
+                }
+                sql = "UPDATE Cars SET CAR_NAME = '" + car2.Name + "', CAR_TYPE = '" + car2.CarType + "', ENGINE_TYPE = '" + car2.EngineType + "', TRANSMISSION_TYPE = '" + car2.FuelCapacity + "', FUEL_CAPACITY = '" + car2.FuelCapacity + "', MILEAGE = '" + car2.Mileage + "', PRICE = '" + car2.Price + "' WHERE CAR_ID = " + conditionInput;
+                st.executeUpdate(sql);
+                CredentialsHandler.updateImageFolderFor(conditionInput, carName, car2.Name);
                 updateDatabaseManager(sql + "\n");
                 return 1;
 

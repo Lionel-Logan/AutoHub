@@ -17,3 +17,4 @@ INSERT INTO Divisions (DIVISION_ID, DIVISION_NAME, MGR_ID) VALUES (1, 'Sales', 1
 INSERT INTO Cars (CAR_ID, CAR_NAME, CAR_TYPE, ENGINE_TYPE, TRANSMISSION_TYPE, FUEL_CAPACITY, MILEAGE, PRICE) VALUES (1, 'Model S', 'Sedan', 'Electric', 'Automatic', '100 kWh', '396 miles', '$80,000'),(2, 'Mustang', 'Coupe', 'Gasoline', 'Manual', '16 gallons', '25 mpg', '$55,000'),(3, 'F-150', 'Truck', 'Gasoline', 'Automatic', '23 gallons', '20 mpg', '$40,000'),(4, 'Escape', 'SUV', 'Hybrid', 'Automatic', '14 gallons', '30 mpg', '$28,000'),(5, 'Bronco', 'SUV', 'Gasoline', 'Manual', '21 gallons', '20 mpg', '$35,000')
 INSERT INTO Availability (CAR_ID, SHOWROOM_ID) VALUES (1, 1),(2, 2),(3, 3),(4, 4),(5, 5)
 INSERT INTO Cars VALUES (86, 'Mustang', 'yum', 'run', 'blah', '17999', '17', '140000')
+UPDATE Cars SET CAR_NAME = 'Mustang', CAR_TYPE = 'yum', ENGINE_TYPE = 'run', TRANSMISSION_TYPE = '17999', FUEL_CAPACITY = '17999', MILEAGE = '17', PRICE = '140000' WHERE CAR_ID = 9
