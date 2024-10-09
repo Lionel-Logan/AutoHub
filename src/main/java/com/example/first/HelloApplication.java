@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
@@ -53,13 +54,17 @@ public class HelloApplication extends Application {
         launch();
         CredentialsHandler.initialize();
 
-        /*
+/*
         DatabaseHandler.connectDatabase("root", "root", "Audi");
-        DatabaseHandler.generateSQLQuery("DeleteCar", "9");
+        Vector<Car> cars = DatabaseHandler.retrieveCars("All");
+        for(Car i : cars){
+            System.out.println(i.CarID);
+        }
 
+        DatabaseHandler.generateSQLQuery("DeleteCar", "15");
         Car car = new Car();
         car.Name = "Mustang";
-        car.CarID = "9";
+        car.CarID = "15";
         car.Price = "140000";
         car.Mileage = "17";
         car.TransmissionType = "blah";
@@ -67,7 +72,7 @@ public class HelloApplication extends Application {
         car.CarType = "yum";
         car.FuelCapacity = "17999";
 
-        DatabaseHandler.generateSQLQuery("UpdateCar", car, car.CarID);
+        //DatabaseHandler.generateSQLQuery("UpdateCar", car, car.CarID);
         DatabaseHandler.disconnectDatabase();
         */
     }

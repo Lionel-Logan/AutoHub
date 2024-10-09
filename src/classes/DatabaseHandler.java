@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class DatabaseHandler {
@@ -159,8 +161,14 @@ public class DatabaseHandler {
                 }
 
             case "DeleteCar":
+                rs = st.executeQuery("SELECT CAR_NAME FROM Cars WHERE CAR_ID = " + conditionInput);
+                String carName = "";
+                while(rs.next()){
+                    carName = rs.getString(1);
+                }
                 sql = "DELETE FROM Cars WHERE CAR_ID = " + conditionInput;
                 st.executeUpdate(sql);
+                CredentialsHandler.deleteImageFolderFor(conditionInput, carName);
                 updateDatabaseManager(sql + "\n");
                 return 1;
 

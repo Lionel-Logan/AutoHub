@@ -13,6 +13,3 @@ ALTER TABLE Availability ADD FOREIGN KEY(CAR_ID) REFERENCES Cars(CAR_ID)
 INSERT INTO Cars VALUES (1, 'R8', 'Race Car', 'V8+', '6 Speed Manual', 'Petrol', '8.5', '13 Crore')
 INSERT INTO Cars VALUES (90, 'E7', 'Sports', 'V9', '7 Speed Manual', 'PetrolXP', '6 Km/L', '15 Crore')
 INSERT INTO Cars VALUES (9, 'Chitti', 'Robo', 'Speed1TB', 'Memory1GB', 'Puthiya', 'Etha', 'Bhoomikku')
-UPDATE Cars SET CAR_NAME = 'Mustang', CAR_TYPE = 'yum', ENGINE_TYPE = 'run', TRANSMISSION_TYPE = '17999', FUEL_CAPACITY = '17999', MILEAGE = '17', PRICE = '140000' WHERE CAR_ID = 9
-DELETE FROM Cars WHERE CAR_ID = 9
-INSERT INTO Cars VALUES (15, 'bbb', 'bbb', 'bbb', 'bbb', 'bbb', 'bbb', 'bbb')

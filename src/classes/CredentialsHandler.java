@@ -67,6 +67,11 @@ public class CredentialsHandler {
         oldCarDirectory.renameTo(newCarDirectory);
     }
 
+    public static void deleteImageFolderFor(String carID, String carName){
+        File carDirectory = new File(currentWorkingDirectory + "/images/" + carID + "_" + carName);
+        carDirectory.delete();
+    }
+
     public static void signUpAsAdmin(Admin admin) {        //This function is used to create .ad files for admins and register their entries onto the .adm file
         File adminFile = new File(currentWorkingDirectory + "/admins/" + admin.Username + ".ad");
 
