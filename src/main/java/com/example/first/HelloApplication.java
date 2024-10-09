@@ -4,6 +4,7 @@ import classes.CredentialsHandler;
 import classes.DatabaseHandler;
 import classes.database.Car;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -56,7 +57,7 @@ public class HelloApplication extends Application {
 
 /*
         DatabaseHandler.connectDatabase("root", "root", "Audi");
-        Vector<Car> cars = DatabaseHandler.retrieveCars("All");
+        ObservableList<Car> cars = DatabaseHandler.retrieveCars("All");
         for(Car i : cars){
             System.out.println(i.CarID);
         }

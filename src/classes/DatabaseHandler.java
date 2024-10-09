@@ -3,6 +3,8 @@ package classes;
 import classes.database.Car;
 import classes.database.User;
 import classes.exceptions.CompanyNotFoundException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.io.FileReader;
@@ -206,8 +208,8 @@ public class DatabaseHandler {
         }
     }
 
-    public static Vector<Car> retrieveCars(String name) throws SQLException{
-        Vector<Car> cars = new Vector<Car>();
+    public static ObservableList<Car> retrieveCars(String name) throws SQLException{
+        ObservableList<Car> cars = FXCollections.observableArrayList();
 
         if(name.equals("All"))
             rs = st.executeQuery("SELECT * FROM Cars");
