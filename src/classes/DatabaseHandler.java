@@ -5,6 +5,7 @@ import classes.database.User;
 import classes.exceptions.CompanyNotFoundException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 
 import java.io.File;
 import java.io.FileReader;
@@ -227,6 +228,7 @@ public class DatabaseHandler {
             car.FuelCapacity = rs.getString(6);
             car.Mileage = rs.getString(7);
             car.Price = rs.getString(8);
+            car.button = new Button("view");
 
             cars.add(car);
         }
