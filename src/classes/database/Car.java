@@ -1,5 +1,7 @@
 package classes.database;
 
+import javafx.scene.control.Button;
+
 public class Car {
     public String CarID;
     public String Name;
@@ -9,6 +11,7 @@ public class Car {
     public String FuelCapacity;
     public String Mileage;
     public String Price;
+    public Button button;
 
     // Default constructor
     public Car() {}
@@ -23,6 +26,8 @@ public class Car {
         this.FuelCapacity = FuelCapacity;
         this.Mileage = Mileage;
         this.Price = Price;
+        this.button=new Button("view");
+
     }
 
     // Getters and setters
@@ -88,6 +93,14 @@ public class Car {
 
     public void setPrice(String Price) {
         this.Price = Price;
+    }
+
+    public Button getButton(){
+        return button;
+    }
+
+    public void setButton(Button button){
+        this.button = button;
     }
 }
 

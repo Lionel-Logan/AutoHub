@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -76,28 +77,34 @@ public class homeadmin_showroom_viewcontentController implements Initializable {
     @FXML
     private TableColumn<Car, String> price;
 
-    ObservableList<Car> list =FXCollections.observableArrayList(
-         new Car("12","AUDI","WEWF","V8","EFDSF","ADASA","PETROL","45"),
-    new Car("12","AUDI","WEWF","V8","EFDSF","ADASA","PETROL","45")
-    );
+    @FXML
+    private TableColumn<Car, Button> imageview;
+
 
     public void initialize(URL location, ResourceBundle resources) {
         //exit.setOnMouseClicked(event ->{
         //    System.exit(0);
         //});
+        try {
+            ObservableList<Car> list = DatabaseHandler.retrieveCars("All");
+            id.setCellValueFactory(new PropertyValueFactory<Car,String>("CarID"));
+            name.setCellValueFactory(new PropertyValueFactory<Car,String>("Name"));
+            type.setCellValueFactory(new PropertyValueFactory<Car,String>("CarType"));
+            engine.setCellValueFactory(new PropertyValueFactory<Car,String>("EngineType"));
+            transmission.setCellValueFactory(new PropertyValueFactory<Car,String>("TransmissionType"));
+            fuel.setCellValueFactory(new PropertyValueFactory<Car,String>("FuelCapacity"));
+            mileage.setCellValueFactory(new PropertyValueFactory<Car,String>("Mileage"));
+            price.setCellValueFactory(new PropertyValueFactory<Car,String>("Price"));
+            imageview.setCellValueFactory(new PropertyValueFactory<Car,Button>("button"));
+            //table.isEditable();
+            table.setSelectionModel(null);
+            //table.getSelectionModel().setSelectionMode(null);
+            table.setItems(list);
+        }
+        catch (Exception e){
 
-        id.setCellValueFactory(new PropertyValueFactory<Car,String>("CarID"));
-        name.setCellValueFactory(new PropertyValueFactory<Car,String>("Name"));
-        type.setCellValueFactory(new PropertyValueFactory<Car,String>("CarType"));
-        engine.setCellValueFactory(new PropertyValueFactory<Car,String>("EngineType"));
-        transmission.setCellValueFactory(new PropertyValueFactory<Car,String>("TransmissionType"));
-        fuel.setCellValueFactory(new PropertyValueFactory<Car,String>("FuelCapacity"));
-        mileage.setCellValueFactory(new PropertyValueFactory<Car,String>("Mileage"));
-        price.setCellValueFactory(new PropertyValueFactory<Car,String>("Price"));
-        //table.isEditable();
-        table.setSelectionModel(null);
-        //table.getSelectionModel().setSelectionMode(null);
-        table.setItems(list);
+        }
+
 
         showroombox.setVisible(true);;
         companybox.setVisible(false);
