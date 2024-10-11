@@ -14,3 +14,7 @@ INSERT INTO Cars VALUES (1, 'R8', 'Race Car', 'V8+', '6 Speed Manual', 'Petrol',
 INSERT INTO Cars VALUES (90, 'E7', 'Sports', 'V9', '7 Speed Manual', 'PetrolXP', '6 Km/L', '15 Crore')
 INSERT INTO Cars VALUES (9, 'Chitti', 'Robo', 'Speed1TB', 'Memory1GB', 'Puthiya', 'Etha', 'Bhoomikku')
 INSERT INTO Cars VALUES (110, 'rrrr', 'rrrr', 'rrrr', 'rrrr', 'rrrr', 'rrrr', 'rrrr')
+DELETE FROM Cars WHERE CAR_ID = 110
+DELETE FROM Cars WHERE CAR_ID = 9
+INSERT INTO Cars VALUES (101, 'rrrrrr', 'rrrrr', 'rrrrr', 'rrrr', 'rrrr', 'rrrr', 'rrrrr')
+DELETE FROM Cars WHERE CAR_ID = 101

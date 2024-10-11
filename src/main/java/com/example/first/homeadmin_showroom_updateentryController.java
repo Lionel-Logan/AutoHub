@@ -101,26 +101,32 @@ public class homeadmin_showroom_updateentryController implements Initializable {
             mileage.setCellValueFactory(new PropertyValueFactory<Car,String>("Mileage"));
             price.setCellValueFactory(new PropertyValueFactory<Car,String>("Price"));
             imageview.setCellValueFactory(new PropertyValueFactory<Car,Button>("button"));
-            Button button = list.get(8).getButton();
-            button.setOnAction(event -> {
-                try {
-                    companybox.setVisible(false);
-                    showroombox.setVisible(true);
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
-                    root = loader.load();
 
-                    // Setup the scene and show it
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setWidth(1100);
-                    stage.setHeight(700);
-                    stage.centerOnScreen();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
+            for(int i = 0; i < list.size(); i++) {
+                Button button = list.get(i).getButton();
+                int finalI = i;
+                button.setOnAction(event -> {
+                    try {
+                        DatabaseHandler.generateSQLQuery("DeleteCar", list.get(finalI).CarID);
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_updateentry.fxml"));
+                        root = loader.load();
+
+                        //homeController home = loader.getController();
+                        //home.display(username,pass);
+                        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+                        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+                        stage.setWidth(1100);
+                        stage.setHeight(700);
+                        stage.centerOnScreen();
+                        scene=new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+
             //table.isEditable();
             table.setSelectionModel(null);
             //table.getSelectionModel().setSelectionMode(null);

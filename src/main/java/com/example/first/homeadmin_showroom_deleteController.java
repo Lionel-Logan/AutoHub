@@ -99,6 +99,18 @@ public class homeadmin_showroom_deleteController implements Initializable {
             table.setSelectionModel(null);
             //table.getSelectionModel().setSelectionMode(null);
             table.setItems(list);
+
+            for(int i = 0; i < list.size(); i++) {
+                Button button = list.get(i).getButton();
+                int finalI = i;
+                button.setOnAction(event -> {
+                    try {
+                        DatabaseHandler.generateSQLQuery("DeleteCar", list.get(finalI).CarID);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
         }
         catch (Exception e){
 

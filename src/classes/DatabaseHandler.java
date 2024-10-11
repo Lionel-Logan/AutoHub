@@ -105,6 +105,15 @@ public class DatabaseHandler {
                     }
                     c = fr.read();
                 }
+
+                rs = st.executeQuery("SELECT CAR_ID, CAR_NAME FROM Cars");
+                while(rs.next()){
+                    String carID = "";
+                    String carName = "";
+                    carID = rs.getString(1);
+                    carName = rs.getString(2);
+                    CredentialsHandler.initializeImageFolderFor(carID, carName);
+                }
             }
             catch(SQLException e){
                 e.printStackTrace();
@@ -167,7 +176,6 @@ public class DatabaseHandler {
                 }
                 sql = "DELETE FROM Cars WHERE CAR_ID = " + conditionInput;
                 st.executeUpdate(sql);
-                CredentialsHandler.deleteImageFolderFor(conditionInput, carName);
                 updateDatabaseManager(sql + "\n");
                 return 1;
 
