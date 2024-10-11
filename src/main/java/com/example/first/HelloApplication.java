@@ -3,6 +3,8 @@ package com.example.first;
 import classes.CredentialsHandler;
 import classes.DatabaseHandler;
 import classes.database.Car;
+import classes.database.Employee;
+import classes.database.Manager;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -55,12 +57,15 @@ public class HelloApplication extends Application {
         launch();
         CredentialsHandler.initialize();
 
-/*
-        DatabaseHandler.connectDatabase("root", "root", "Audi");
-        ObservableList<Car> cars = DatabaseHandler.retrieveCars("All");
-        for(Car i : cars){
-            System.out.println(i.CarID);
+        /*
+
+        DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
+        ObservableList<Manager> cars = DatabaseHandler.retrieveManagers("All");
+        for(Manager i : cars){
+            System.out.println(i.ID);
         }
+
+
 
         DatabaseHandler.generateSQLQuery("DeleteCar", "15");
         Car car = new Car();

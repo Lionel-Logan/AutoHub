@@ -1,6 +1,9 @@
 package classes;
 
 import classes.database.Car;
+import classes.database.Employee;
+import classes.database.Manager;
+import classes.database.User;
 import classes.exceptions.CompanyNotFoundException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,28 +94,33 @@ public class DatabaseHandler {
         }
         else{
             try{
-                st.executeUpdate("DROP DATABASE " + companyName);
-                FileReader fr = new FileReader(dbm);
-                int c = fr.read();
-                String sql = "";
-                while(c != -1){
-                    if((char)c != '\n'){
-                        sql += (char)c;
-                    }
-                    else{
-                        st.executeUpdate(sql);
-                        sql = "";
-                    }
-                    c = fr.read();
+                try{
+                    st.executeUpdate("DROP DATABASE " + companyName);
                 }
+                catch(SQLException s){}
+                finally {
+                    FileReader fr = new FileReader(dbm);
+                    int c = fr.read();
+                    String sql = "";
+                    while(c != -1){
+                        if((char)c != '\n'){
+                            sql += (char)c;
+                        }
+                        else{
+                            st.executeUpdate(sql);
+                            sql = "";
+                        }
+                        c = fr.read();
+                    }
 
-                rs = st.executeQuery("SELECT CAR_ID, CAR_NAME FROM Cars");
-                while(rs.next()){
-                    String carID = "";
-                    String carName = "";
-                    carID = rs.getString(1);
-                    carName = rs.getString(2);
-                    CredentialsHandler.initializeImageFolderFor(carID, carName);
+                    rs = st.executeQuery("SELECT CAR_ID, CAR_NAME FROM Cars");
+                    while(rs.next()){
+                        String carID = "";
+                        String carName = "";
+                        carID = rs.getString(1);
+                        carName = rs.getString(2);
+                        CredentialsHandler.initializeImageFolderFor(carID, carName);
+                    }
                 }
             }
             catch(SQLException e){
@@ -238,5 +246,53 @@ public class DatabaseHandler {
         }
 
         return cars;
+    }
+
+    public static ObservableList<Employee> retrieveEmployees(String name) throws SQLException{
+        ObservableList<Employee> employees = FXCollections.observableArrayList();
+
+        if(name.equals("All"))
+            rs = st.executeQuery("SELECT * FROM Employees");
+        else
+            rs = st.executeQuery("SELECT * FROM Employees where EMP_NAME = '" + name + "'");
+
+        while(rs.next()){
+            Employee employee = new Employee();
+
+            employee.ID = rs.getString(1);
+            employee.Name = rs.getString(2);
+            employee.Age = rs.getString(3);
+            employee.Sex = rs.getString(4);
+            employee.Place = rs.getString(5);
+            employee.button = new Button("view");
+
+            employees.add(employee);
+        }
+
+        return employees;
+    }
+
+    public static ObservableList<Manager> retrieveManagers(String name) throws SQLException{
+        ObservableList<Manager> employees = FXCollections.observableArrayList();
+
+        if(name.equals("All"))
+            rs = st.executeQuery("SELECT * FROM Managers");
+        else
+            rs = st.executeQuery("SELECT * FROM Managers where MGR_NAME = '" + name + "'");
+
+        while(rs.next()){
+            Manager employee = new Manager();
+
+            employee.ID = rs.getString(1);
+            employee.Name = rs.getString(2);
+            employee.Age = rs.getString(3);
+            employee.Sex = rs.getString(4);
+            employee.Place = rs.getString(5);
+            employee.button = new Button("view");
+
+            employees.add(employee);
+        }
+
+        return employees;
     }
 }

@@ -18,3 +18,4 @@ DELETE FROM Cars WHERE CAR_ID = 110
 DELETE FROM Cars WHERE CAR_ID = 9
 INSERT INTO Cars VALUES (101, 'rrrrrr', 'rrrrr', 'rrrrr', 'rrrr', 'rrrr', 'rrrr', 'rrrrr')
 DELETE FROM Cars WHERE CAR_ID = 101
+insert into managers values (1,'ash',25,'m','dubai');
