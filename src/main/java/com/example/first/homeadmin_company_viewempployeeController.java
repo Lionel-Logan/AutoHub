@@ -1,6 +1,4 @@
 package com.example.first;
-import classes.DatabaseHandler;
-import classes.database.Car;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,8 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -21,7 +17,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class homeadmin_SliderController implements Initializable {
+public class homeadmin_company_viewempployeeController implements Initializable {
 
 
     @FXML
@@ -122,11 +118,9 @@ public class homeadmin_SliderController implements Initializable {
         scene=new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
-    public void company(ActionEvent event)throws Exception{
+    public void company_viewemployee(ActionEvent event)throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_company_viewemployee.fxml"));
         root = loader.load();
         //homeController home = loader.getController();
@@ -141,74 +135,13 @@ public class homeadmin_SliderController implements Initializable {
         stage.show();
     }
 
-    public void addentry(ActionEvent event)throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
-        root = loader.load();
-
-        //homeController home = loader.getController();
-        //home.display(username,pass);
-        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
-        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setWidth(1100);
-        stage.setHeight(700);
-        stage.centerOnScreen();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void updateentry(ActionEvent event)throws Exception{
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_updateentry.fxml"));
-        root = loader.load();
-
-        //homeController home = loader.getController();
-        //home.display(username,pass);
-        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
-        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setWidth(1100);
-        stage.setHeight(700);
-        stage.centerOnScreen();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void viewcontent(ActionEvent event)throws Exception{
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
-        root = loader.load();
-        System.out.println("viewcontent");
-
-        //homeController home = loader.getController();
-        //home.display(username,pass);
-        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
-        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setWidth(1100);
-        stage.setHeight(700);
-        stage.centerOnScreen();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
 
 
-    }
-    public void deletecontents(ActionEvent event)throws Exception{
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
-        root = loader.load();
-        System.out.println("viewcontent");
 
-        //homeController home = loader.getController();
-        //home.display(username,pass);
-        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
-        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setWidth(1100);
-        stage.setHeight(700);
-        stage.centerOnScreen();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
+
+
 }
 
 

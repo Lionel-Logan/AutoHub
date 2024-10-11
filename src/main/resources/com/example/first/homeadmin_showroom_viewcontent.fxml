@@ -79,7 +79,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="130.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="DeleteEntry">
+                        <Button layoutX="130.0" mnemonicParsing="false" onAction="#deletecontents" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="DeleteEntry">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -92,30 +92,6 @@
                      </children>
                   </HBox>
                   <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #fffdd0;" />
-                  <HBox fx:id="companybox" layoutX="128.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="5.0" prefWidth="967.0" AnchorPane.topAnchor="35.0">
-                     <children>
-                        <Button fx:id="addentry1" layoutX="600.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewEmployee">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewManager">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="130.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ManageComapny">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="240.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="EraseContent">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
                </children>
             </AnchorPane>
          </top>

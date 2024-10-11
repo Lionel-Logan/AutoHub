@@ -77,8 +77,6 @@ public class homeadmin_showrrom_addentryController implements Initializable {
         //    System.exit(0);
         //});
         confirm.setDisable(true);
-        showroombox.setVisible(true);;
-        companybox.setVisible(false);
         slider.setTranslateX(0);
 
         menu.setOnMouseClicked(event -> {
@@ -115,17 +113,37 @@ public class homeadmin_showrrom_addentryController implements Initializable {
 
     }
 
-    public void showroom(ActionEvent event){
-        companybox.setVisible(false);
-        showroombox.setVisible(true);
+    public void showroom(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
+        root = loader.load();
+
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
-    public void company(ActionEvent event){
-        companybox.setVisible(true);
-        showroombox.setVisible(false);
+    public void company(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_company_viewemployee.fxml"));
+        root = loader.load();
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     public void addentry(ActionEvent event)throws Exception{
-        showroombox.setVisible(true);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
         root = loader.load();
 
@@ -142,7 +160,6 @@ public class homeadmin_showrrom_addentryController implements Initializable {
     }
 
     public void updateentry(ActionEvent event)throws Exception{
-        showroombox.setVisible(true);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_updateentry.fxml"));
         root = loader.load();
 
@@ -159,10 +176,26 @@ public class homeadmin_showrrom_addentryController implements Initializable {
     }
 
     public void viewcontent(ActionEvent event)throws Exception{
-        showroombox.setVisible(true);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
         root = loader.load();
 
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void deletecontents(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
+        root = loader.load();
+        System.out.println("viewcontent");
+
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setWidth(1100);
         stage.setHeight(700);

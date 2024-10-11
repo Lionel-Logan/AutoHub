@@ -12,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -20,12 +19,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import javafx.scene.control.TableColumn;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.Vector;
 
-public class homeadmin_showroom_updateentryController implements Initializable {
-
+public class homeadmin_showroom_deleteController implements Initializable {
 
     @FXML
     private ImageView menuexit;
@@ -50,7 +50,6 @@ public class homeadmin_showroom_updateentryController implements Initializable {
     public Stage stage;
     public Scene scene;
     public Parent root;
-
     @FXML
     private TableView<Car> table;
     @FXML
@@ -81,12 +80,7 @@ public class homeadmin_showroom_updateentryController implements Initializable {
     private TableColumn<Car, Button> imageview;
 
 
-
-
-
-    ;
-
-    public void initialize(URL location, ResourceBundle resources){
+    public void initialize(URL location, ResourceBundle resources) {
         //exit.setOnMouseClicked(event ->{
         //    System.exit(0);
         //});
@@ -101,26 +95,6 @@ public class homeadmin_showroom_updateentryController implements Initializable {
             mileage.setCellValueFactory(new PropertyValueFactory<Car,String>("Mileage"));
             price.setCellValueFactory(new PropertyValueFactory<Car,String>("Price"));
             imageview.setCellValueFactory(new PropertyValueFactory<Car,Button>("button"));
-            Button button = list.get(8).getButton();
-            button.setOnAction(event -> {
-                try {
-                    companybox.setVisible(false);
-                    showroombox.setVisible(true);
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
-                    root = loader.load();
-
-                    // Setup the scene and show it
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setWidth(1100);
-                    stage.setHeight(700);
-                    stage.centerOnScreen();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
             //table.isEditable();
             table.setSelectionModel(null);
             //table.getSelectionModel().setSelectionMode(null);
@@ -130,6 +104,9 @@ public class homeadmin_showroom_updateentryController implements Initializable {
 
         }
 
+
+        showroombox.setVisible(true);;
+        companybox.setVisible(false);
         slider.setTranslateX(0);
 
         menu.setOnMouseClicked(event -> {
