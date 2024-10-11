@@ -38,7 +38,7 @@ public class loginController {
         String mysqlpass = mysqlpassfield.getText();
         String port = portno.getText();
         String companyname = CredentialsHandler.login(username,pass);
-        DatabaseHandler.connectDatabase(mysqlusername,mysqlpass,companyname);
+        DatabaseHandler.connectDatabase(mysqlusername,mysqlpass,companyname,port);
 
 
 

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class DatabaseHandler {
-    private static String url = "jdbc:mysql://localhost:3306/";
+    private static String url = "jdbc:mysql://localhost:";
     private static String companyName = "";
 
     public static boolean isConnected = false;
@@ -22,9 +22,9 @@ public class DatabaseHandler {
     private static Connection conn;
     private static ResultSet rs;
 
-    public static void connectDatabase(String inUser, String inPass, String inCompanyName) throws SQLException{   //Call this function first to establish the connection with MySQL
+    public static void connectDatabase(String inUser, String inPass, String inCompanyName, String portNo) throws SQLException{   //Call this function first to establish the connection with MySQL
         companyName = inCompanyName;
-        String urlSub = url + "mysql";
+        String urlSub = url + portNo + "/mysql";
         conn = DriverManager.getConnection(urlSub, inUser, inPass);
         st = conn.createStatement();
         try{
@@ -34,7 +34,7 @@ public class DatabaseHandler {
         catch(IOException e){
             e.printStackTrace();
         }
-        url += companyName;
+        url += portNo + "/" + companyName;
         conn = DriverManager.getConnection(url, inUser, inPass);
         st = conn.createStatement();
         isConnected = true;
