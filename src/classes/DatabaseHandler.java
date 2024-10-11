@@ -1,7 +1,6 @@
 package classes;
 
 import classes.database.Car;
-import classes.database.User;
 import classes.exceptions.CompanyNotFoundException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,9 +11,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
 
 public class DatabaseHandler {
     private static String url = "jdbc:mysql://localhost:3306/";
