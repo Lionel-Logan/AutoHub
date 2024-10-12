@@ -80,6 +80,9 @@ public class homeadmin_showroom_updateentryController implements Initializable {
     @FXML
     private TableColumn<Car, Button> imageview;
 
+    public String update_id;
+
+
 
 
 
@@ -107,13 +110,19 @@ public class homeadmin_showroom_updateentryController implements Initializable {
                 int finalI = i;
                 button.setOnAction(event -> {
                     try {
-                        DatabaseHandler.generateSQLQuery("DeleteCar", list.get(finalI).CarID);
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_updateentry.fxml"));
+                        update_id = list.get(finalI).CarID;
+                        System.out.println(update_id);
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_updateentry_updatewindow.fxml"));
                         root = loader.load();
 
                         //homeController home = loader.getController();
                         //home.display(username,pass);
                         //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+                        homeadmin_showrrom_updateentry_updatewindowController updateWindowController = loader.getController();
+
+                        // Pass the update_id to the update window controller
+                        updateWindowController.setUpdateId(update_id); // Use a setter method
+
                         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
                         stage.setWidth(1100);
                         stage.setHeight(700);
@@ -171,6 +180,8 @@ public class homeadmin_showroom_updateentryController implements Initializable {
         });
 
     }
+
+
 
     public void showroom(ActionEvent event)throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
@@ -252,7 +263,7 @@ public class homeadmin_showroom_updateentryController implements Initializable {
     }
 
     public void deletecontents(ActionEvent event)throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_deleteentry.fxml"));
         root = loader.load();
         System.out.println("viewcontent");
 
@@ -267,5 +278,7 @@ public class homeadmin_showroom_updateentryController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+
 
 }

@@ -2,8 +2,6 @@ package com.example.first;
 import classes.DatabaseHandler;
 import classes.database.Car;
 import javafx.animation.TranslateTransition;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +10,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -24,7 +21,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class homeadmin_showroom_deleteController implements Initializable {
+public class homeadmin_showrrom_updateentry_updatewindowController implements Initializable {
 
 
     @FXML
@@ -52,36 +49,27 @@ public class homeadmin_showroom_deleteController implements Initializable {
     public Parent root;
 
     @FXML
-    private TableView<Car> table;
+    private TextField idfield;
     @FXML
-    private TableColumn<Car,String> id;
-
+    private TextField namefield;
     @FXML
-    private TableColumn<Car,String> name;
-
+    private TextField ctypefield;
     @FXML
-    private TableColumn<Car,String> type;
-
+    private TextField etypefield;
     @FXML
-    private TableColumn<Car, String> engine;
-
+    private TextField ttypefield;
     @FXML
-    private TableColumn<Car, String> transmission;
-
+    private TextField ftypefield;
     @FXML
-    private TableColumn<Car, String> fuel;
-
+    private TextField mileagefield;
     @FXML
-    private TableColumn<Car, String> mileage;
-
+    private TextField pricefield;
     @FXML
-    private TableColumn<Car, String> price;
-
+    private Button confirm;
     @FXML
-    private TableColumn<Car, Button> imageview;
+    private Label message;
 
-
-
+    private String update_id;
 
 
     ;
@@ -89,53 +77,11 @@ public class homeadmin_showroom_deleteController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         //exit.setOnMouseClicked(event ->{
         //    System.exit(0);
-        //});
-        try {
-            ObservableList<Car> list = DatabaseHandler.retrieveCars("All");
-            id.setCellValueFactory(new PropertyValueFactory<Car,String>("CarID"));
-            name.setCellValueFactory(new PropertyValueFactory<Car,String>("Name"));
-            type.setCellValueFactory(new PropertyValueFactory<Car,String>("CarType"));
-            engine.setCellValueFactory(new PropertyValueFactory<Car,String>("EngineType"));
-            transmission.setCellValueFactory(new PropertyValueFactory<Car,String>("TransmissionType"));
-            fuel.setCellValueFactory(new PropertyValueFactory<Car,String>("FuelCapacity"));
-            mileage.setCellValueFactory(new PropertyValueFactory<Car,String>("Mileage"));
-            price.setCellValueFactory(new PropertyValueFactory<Car,String>("Price"));
-            imageview.setCellValueFactory(new PropertyValueFactory<Car,Button>("button"));
-
-            for(int i = 0; i < list.size(); i++) {
-                Button button = list.get(i).getButton();
-                int finalI = i;
-                button.setOnAction(event -> {
-                    try {
-                        DatabaseHandler.generateSQLQuery("DeleteCar", list.get(finalI).CarID);
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_deleteentry.fxml"));
-                        root = loader.load();
-
-                        //homeController home = loader.getController();
-                        //home.display(username,pass);
-                        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
-                        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-                        stage.setWidth(1100);
-                        stage.setHeight(700);
-                        stage.centerOnScreen();
-                        scene=new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-
-            //table.isEditable();
-            table.setSelectionModel(null);
-            //table.getSelectionModel().setSelectionMode(null);
-            table.setItems(list);
-        }
-        catch (Exception e){
-
-        }
-
+        //})
+        homeadmin_showroom_updateentryController updateobject = new homeadmin_showroom_updateentryController();
+        idfield.setText(updateobject.update_id);
+        idfield.setEditable(false);
+        confirm.setDisable(true);
         slider.setTranslateX(0);
 
         menu.setOnMouseClicked(event -> {
@@ -170,6 +116,11 @@ public class homeadmin_showroom_deleteController implements Initializable {
             });
         });
 
+    }
+
+    public void setUpdateId(String update_id) {
+        this.update_id = update_id;
+        idfield.setText(update_id); // Set the update_id into the TextField
     }
 
     public void showroom(ActionEvent event)throws Exception{
@@ -237,6 +188,19 @@ public class homeadmin_showroom_deleteController implements Initializable {
     public void viewcontent(ActionEvent event)throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
         root = loader.load();
+
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void deletecontents(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_deleteentry.fxml"));
+        root = loader.load();
         System.out.println("viewcontent");
 
         //homeController home = loader.getController();
@@ -251,20 +215,43 @@ public class homeadmin_showroom_deleteController implements Initializable {
         stage.show();
     }
 
-    public void deletecontents(ActionEvent event)throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_deleteentry.fxml"));
-        root = loader.load();
+    public void done(ActionEvent event)throws Exception{
+        String id = idfield.getText();
+        String name = namefield.getText();
+        String cartype = ctypefield.getText();
+        String enginetype = etypefield.getText();
+        String transtype = ttypefield.getText();
+        String fueltype = ftypefield.getText();
+        String mileage = mileagefield.getText();
+        String price = pricefield.getText();
 
-        //homeController home = loader.getController();
-        //home.display(username,pass);
-        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
-        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setWidth(1100);
-        stage.setHeight(700);
-        stage.centerOnScreen();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(id.equals("")  || name.equals("") || cartype.equals("") || enginetype.equals("") || transtype.equals("") || fueltype.equals("") || mileage.equals("")|| price.equals("")){
+            confirm.setDisable(true);
+            message.setText("enter all credentials");
+        }
+        else{
+            confirm.setDisable(false);
+            message.setText("confirm to add to database");
+        }
     }
+
+    public void confirm(ActionEvent event) throws Exception{
+        String id = idfield.getText();
+        String name = namefield.getText();
+        String cartype = ctypefield.getText();
+        String enginetype = etypefield.getText();
+        String transtype = ttypefield.getText();
+        String fueltype = ftypefield.getText();
+        String mileage = mileagefield.getText();
+        String price = pricefield.getText();
+
+
+    }
+
+
+
+
+
+
 
 }

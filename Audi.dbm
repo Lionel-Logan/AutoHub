@@ -18,4 +18,16 @@ DELETE FROM Cars WHERE CAR_ID = 110
 DELETE FROM Cars WHERE CAR_ID = 9
 INSERT INTO Cars VALUES (101, 'rrrrrr', 'rrrrr', 'rrrrr', 'rrrr', 'rrrr', 'rrrr', 'rrrrr')
 DELETE FROM Cars WHERE CAR_ID = 101
+DELETE FROM Cars WHERE CAR_ID = 1
+INSERT INTO Cars VALUES (55, 'renjish', 'daddyless', 'noengine', '0 trans', 'gay', '-60', '5')
+DELETE FROM Cars WHERE CAR_ID = 55
+INSERT INTO Cars VALUES (55, 'renjish', 'daddyless', 'adad', 'adsdadsda', 'ss', 'sds', 'sdsd')
+DELETE FROM Cars WHERE CAR_ID = 55
+INSERT INTO Cars VALUES (1, '23', 'sdaf', 'asdas', 'asd', 'asd', 'ad', 'asd')
+DELETE FROM Cars WHERE CAR_ID = 1
+INSERT INTO Cars VALUES (121, 'ssda', 'asdas', 'sdasd', 'adas', 'asdasd', 'asda', 'asda')
+DELETE FROM Cars WHERE CAR_ID = 121
+DELETE FROM Cars WHERE CAR_ID = 90
+INSERT INTO Cars VALUES (1, 'grand i10', 'racecar', 'v8', 'manual', 'petrol', '12', '7lakh')
 insert into managers values (1,'ash',25,'m','dubai');
+INSERT INTO Cars VALUES (5, '1212', 'dsd', 'dfs', 'sdf', 'sdfs', 'df', 'sdf')

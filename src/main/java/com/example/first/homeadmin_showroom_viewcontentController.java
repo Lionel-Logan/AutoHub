@@ -221,7 +221,7 @@ public class homeadmin_showroom_viewcontentController implements Initializable {
         stage.show();
     }
     public void deletecontents(ActionEvent event)throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_viewcontent.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_deleteentry.fxml"));
         root = loader.load();
         System.out.println("viewcontent");
 
