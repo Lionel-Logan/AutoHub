@@ -202,6 +202,21 @@ public class homeadmin_showroom_deleteController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public void account(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_account.fxml"));
+        root = loader.load();
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void addentry(ActionEvent event)throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
         root = loader.load();

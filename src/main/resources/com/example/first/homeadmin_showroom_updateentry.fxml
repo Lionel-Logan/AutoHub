@@ -37,7 +37,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="Account">
+                              <Button layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#account" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="Account">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>

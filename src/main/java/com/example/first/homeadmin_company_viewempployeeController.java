@@ -104,6 +104,21 @@ public class homeadmin_company_viewempployeeController implements Initializable 
         });
 
     }
+    public void account(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_account.fxml"));
+        root = loader.load();
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
     public void showroom(ActionEvent event)throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_showroom_addentry.fxml"));
@@ -122,6 +137,36 @@ public class homeadmin_company_viewempployeeController implements Initializable 
 
     public void company_viewemployee(ActionEvent event)throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_company_viewemployee.fxml"));
+        root = loader.load();
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void viewmanagers(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_company_viewmanagers.fxml"));
+        root = loader.load();
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(1100);
+        stage.setHeight(700);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void managecompany(ActionEvent event)throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_company_managecompany.fxml"));
         root = loader.load();
         //homeController home = loader.getController();
         //home.display(username,pass);
