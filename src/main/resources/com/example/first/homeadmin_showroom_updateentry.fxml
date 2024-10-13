@@ -102,15 +102,17 @@
                      <children>
                         <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="id" prefWidth="76.0" style="-fx-background-color: white;" text="ID" />
-                            <TableColumn fx:id="name" prefWidth="129.0" style="-fx-background-color: white;" text="NAME" />
-                              <TableColumn fx:id="type" prefWidth="118.0" style="-fx-background-color: white;" text="TYPE" />
-                              <TableColumn fx:id="engine" prefWidth="123.0" style="-fx-background-color: white;" text="ENGINE" />
-                              <TableColumn fx:id="transmission" prefWidth="125.0" style="-fx-background-color: white;" text="TRANSMISSION" />
-                              <TableColumn fx:id="fuel" prefWidth="114.0" style="-fx-background-color: white;" text="FUEL" />
-                              <TableColumn fx:id="mileage" prefWidth="94.0" style="-fx-background-color: white;" text="MILEAGE" />
-                              <TableColumn fx:id="price" prefWidth="92.0" style="-fx-background-color: white;" text="PRICE" />
-                              <TableColumn fx:id="imageview" prefWidth="95.0" style="-fx-background-color: white;" />
+                            <TableColumn fx:id="id" prefWidth="44.0" style="-fx-background-color: white;" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="106.0" style="-fx-background-color: white;" text="NAME" />
+                              <TableColumn fx:id="type" prefWidth="96.0" style="-fx-background-color: white;" text="TYPE" />
+                              <TableColumn fx:id="engine" prefWidth="103.0" style="-fx-background-color: white;" text="ENGINE" />
+                              <TableColumn fx:id="transmission" prefWidth="123.0" style="-fx-background-color: white;" text="TRANSMISSION" />
+                              <TableColumn fx:id="fuel" prefWidth="103.0" style="-fx-background-color: white;" text="FUEL" />
+                              <TableColumn fx:id="mileage" prefWidth="75.0" style="-fx-background-color: white;" text="MILEAGE" />
+                              <TableColumn fx:id="price" prefWidth="75.0" style="-fx-background-color: white;" text="PRICE" />
+                              <TableColumn fx:id="number" prefWidth="69.0" style="-fx-background-color: white;" text="COUNT" />
+                              <TableColumn fx:id="showroomid" prefWidth="106.0" style="-fx-background-color: white;" text="SHOWROOM" />
+                              <TableColumn fx:id="imageview" prefWidth="97.0" style="-fx-background-color: white;" />
                           </columns>
                         </TableView>
                      </children>

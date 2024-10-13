@@ -19,7 +19,7 @@ public class Car {
     public Car() {}
 
     // Parameterized constructor
-    public Car(String CarID, String Name, String CarType, String EngineType, String TransmissionType, String FuelCapacity, String Mileage, String Price) {
+    public Car(String CarID, String Name, String CarType, String EngineType, String TransmissionType, String FuelCapacity, String Mileage, String Price, String Count, String ShowroomID) {
         this.CarID = CarID;
         this.Name = Name;
         this.CarType = CarType;
@@ -28,8 +28,9 @@ public class Car {
         this.FuelCapacity = FuelCapacity;
         this.Mileage = Mileage;
         this.Price = Price;
-        this.button=new Button("view");
-
+        this.Count = Count;
+        this.ShowroomID = ShowroomID;
+        this.button = new Button("view");
     }
 
     // Getters and setters
@@ -97,12 +98,27 @@ public class Car {
         this.Price = Price;
     }
 
-    public Button getButton(){
+    public Button getButton() {
         return button;
     }
 
-    public void setButton(Button button){
+    public void setButton(Button button) {
         this.button = button;
     }
-}
 
+    public String getCount() {
+        return Count;
+    }
+
+    public void setCount(String Count) {
+        this.Count = Count;
+    }
+
+    public String getShowroomID() {
+        return ShowroomID;
+    }
+
+    public void setShowroomID(String ShowroomID) {
+        this.ShowroomID = ShowroomID;
+    }
+}

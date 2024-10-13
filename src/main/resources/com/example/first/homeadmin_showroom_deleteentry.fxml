@@ -100,10 +100,10 @@
                <children>
                   <AnchorPane fx:id="updateentrypane" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="id" prefWidth="76.0" style="-fx-background-color: white;" text="ID" />
-                            <TableColumn fx:id="name" prefWidth="129.0" style="-fx-background-color: white;" text="NAME" />
+                            <TableColumn fx:id="id" prefWidth="76.0" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="129.0" text="NAME" />
                               <TableColumn fx:id="type" prefWidth="118.0" style="-fx-background-color: white;" text="TYPE" />
                               <TableColumn fx:id="engine" prefWidth="123.0" style="-fx-background-color: white;" text="ENGINE" />
                               <TableColumn fx:id="transmission" prefWidth="125.0" style="-fx-background-color: white;" text="TRANSMISSION" />

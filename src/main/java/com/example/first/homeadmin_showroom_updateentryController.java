@@ -78,6 +78,13 @@ public class homeadmin_showroom_updateentryController implements Initializable {
     private TableColumn<Car, String> price;
 
     @FXML
+    private TableColumn<Car, String> showroomid;
+
+    @FXML
+    private TableColumn<Car, String> number;
+
+
+    @FXML
     private TableColumn<Car, Button> imageview;
 
     public String update_id;
@@ -95,6 +102,10 @@ public class homeadmin_showroom_updateentryController implements Initializable {
     public String update_mileage;
 
     public String update_price;
+
+    public String update_showroomid;
+
+    public String update_number;
 
 
 
@@ -119,6 +130,8 @@ public class homeadmin_showroom_updateentryController implements Initializable {
             fuel.setCellValueFactory(new PropertyValueFactory<Car,String>("FuelCapacity"));
             mileage.setCellValueFactory(new PropertyValueFactory<Car,String>("Mileage"));
             price.setCellValueFactory(new PropertyValueFactory<Car,String>("Price"));
+            showroomid.setCellValueFactory(new PropertyValueFactory<Car,String>("ShowroomID"));
+            number.setCellValueFactory(new PropertyValueFactory<Car,String>("Count"));
             imageview.setCellValueFactory(new PropertyValueFactory<Car,Button>("button"));
 
             for(int i = 0; i < list.size(); i++) {
@@ -135,6 +148,8 @@ public class homeadmin_showroom_updateentryController implements Initializable {
                         update_fuel = list.get(finalI).FuelCapacity;
                         update_mileage = list.get(finalI).Mileage;
                         update_price = list.get(finalI).Price;
+                        update_showroomid = list.get(finalI).ShowroomID;
+                        update_number=list.get(finalI).Count;
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_updateentry_updatewindow.fxml"));
                         root = loader.load();
 
@@ -144,7 +159,7 @@ public class homeadmin_showroom_updateentryController implements Initializable {
                         homeadmin_showrrom_updateentry_updatewindowController updateWindowController = loader.getController();
 
                         // Pass the update_id to the update window controller
-                        updateWindowController.setUpdateId(update_id,update_name,update_type,update_engine,update_transmission,update_fuel,update_mileage,update_price); // Use a setter method
+                        updateWindowController.setUpdateId(update_id,update_name,update_type,update_engine,update_transmission,update_fuel,update_mileage,update_price,update_showroomid,update_number); // Use a setter method
 
                         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
                         stage.setWidth(1100);

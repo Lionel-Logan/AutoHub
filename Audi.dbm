@@ -42,7 +42,25 @@ INSERT INTO Cars VALUES (2, 'd', 'csdcsd', 'css', 'cssdc', 'bjkjh', 'jkjk', 'jhk
 INSERT INTO Availability VALUES (2, 1, 78)
 INSERT INTO Cars VALUES (8, 'sdfsdf', 'dsfd', 'sdf', 'df', 'sdf', 'dsfs', 'sdf')
 INSERT INTO Availability VALUES (1, 1, 4)
+INSERT INTO Cars VALUES (7, 'ffs', 'dsfsd', 'sdfs', 'sad', 'sada', 'asd', 'asd')
+DELETE FROM Availability WHERE CAR_ID = 8
+DELETE FROM Cars WHERE CAR_ID = 8
+DELETE FROM Employees WHERE EMP_ID = 2
+DELETE FROM Managers WHERE MGR_ID = 2
+DELETE FROM Employees WHERE EMP_ID = 1
 INSERT INTO Managers VALUES (24, 'bit', 19, 'M', 'Kochi')
 INSERT INTO Employees VALUES (11, 'teww', 76, 'F', 'Kqweqw eaochi')
 INSERT INTO Managers VALUES (234, 'Navasdas neet', 45, 'M', ' dqwer')
 INSERT INTO Employees VALUES (118, 'Navnsadwfreet', 21, 'F', 'Khi')
+INSERT INTO Cars VALUES (9, 'ds', 'saas', 'asda', 'dfsf', 'dsfs', 'dfs', 'df')
+INSERT INTO Availability VALUES (9, 1, 60)
+UPDATE Cars SET CAR_NAME = 'grand i10', CAR_TYPE = 'racecar', ENGINE_TYPE = 'v8', TRANSMISSION_TYPE = 'petrol', FUEL_CAPACITY = 'petrol', MILEAGE = '12', PRICE = '7lakh' WHERE CAR_ID = 1
+UPDATE Availability SET SHOWROOM_ID = 1, COUNT = 4 WHERE CAR_ID = 1
+UPDATE Cars SET CAR_NAME = 'grand i10', CAR_TYPE = 'racecar', ENGINE_TYPE = 'v8', TRANSMISSION_TYPE = 'petrol', FUEL_CAPACITY = 'petrol', MILEAGE = '12', PRICE = '7lakh' WHERE CAR_ID = 1
+UPDATE Availability SET SHOWROOM_ID = 1, COUNT = 4 WHERE CAR_ID = 1
+UPDATE Cars SET CAR_NAME = 'd', CAR_TYPE = 'csdcsd', ENGINE_TYPE = 'css', TRANSMISSION_TYPE = 'bjkjh', FUEL_CAPACITY = 'bjkjh', MILEAGE = 'jkjk', PRICE = 'jhkhj' WHERE CAR_ID = 2
+UPDATE Availability SET SHOWROOM_ID = 1, COUNT = 78 WHERE CAR_ID = 2
+UPDATE Cars SET CAR_NAME = 'grand i10', CAR_TYPE = 'racecar', ENGINE_TYPE = 'v8', TRANSMISSION_TYPE = 'manual', FUEL_CAPACITY = 'petrol', MILEAGE = '12', PRICE = '7lakh' WHERE CAR_ID = 1
+UPDATE Availability SET SHOWROOM_ID = 1, COUNT = 4 WHERE CAR_ID = 1
+DELETE FROM Availability WHERE CAR_ID = 2
+DELETE FROM Cars WHERE CAR_ID = 2

@@ -64,6 +64,11 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
     private TextField mileagefield;
     @FXML
     private TextField pricefield;
+
+    @FXML
+    private TextField showid;
+    @FXML
+    private TextField number;
     @FXML
     private Button confirm;
     @FXML
@@ -84,6 +89,10 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
     public String update_mileage;
 
     public String update_price;
+
+    public String update_showroomid;
+
+    public String update_number;
 
 
     ;
@@ -132,7 +141,7 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
 
     }
 
-    public void setUpdateId(String update_id,String update_name,String update_type,String update_engine,String update_transmission,String update_fuel,String update_mileage,String update_price) {
+    public void setUpdateId(String update_id,String update_name,String update_type,String update_engine,String update_transmission,String update_fuel,String update_mileage,String update_price,String update_showroomid,String update_number) {
         this.update_id = update_id;
         idfield.setText(update_id);
 
@@ -156,6 +165,12 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
 
         this.update_price = update_price;
         pricefield.setText(update_price);
+
+        this.update_showroomid = update_showroomid;
+        showid.setText(update_showroomid);
+
+        this.update_number = update_number;
+        number.setText(update_number);
     }
 
     public void showroom(ActionEvent event)throws Exception{
@@ -295,6 +310,22 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
         String fueltype = ftypefield.getText();
         String mileage = mileagefield.getText();
         String price = pricefield.getText();
+        String showroomid = showid.getText();
+        String count = number.getText();
+
+        Car car = new Car();
+        car.CarID = id;
+        car.Name = name;
+        car.EngineType = enginetype;
+        car.CarType = cartype;
+        car.TransmissionType = transtype;
+        car.FuelCapacity = fueltype;
+        car.Mileage = mileage;
+        car.Price = price;
+        car.ShowroomID=showroomid;
+        car.Count=count;
+
+        DatabaseHandler.generateSQLQuery("UpdateCar", car, car.CarID);
 
 
     }

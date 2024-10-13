@@ -99,50 +99,50 @@
                <children>
                   <AnchorPane fx:id="addentrypane" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TextField fx:id="idfield" layoutX="200.0" layoutY="100.0" />
-                        <TextField fx:id="namefield" layoutX="200.0" layoutY="200.0" />
-                        <TextField fx:id="ctypefield" layoutX="200.0" layoutY="300.0" />
-                        <TextField fx:id="etypefield" layoutX="200.0" layoutY="400.0" />
-                        <TextField fx:id="ttypefield" layoutX="700.0" layoutY="100.0" />
-                        <TextField fx:id="ftypefield" layoutX="700.0" layoutY="200.0" />
-                        <TextField fx:id="mileagefield" layoutX="700.0" layoutY="300.0" />
-                        <Label layoutX="60.0" layoutY="100.0" text="CAR ID" textFill="WHITE">
+                        <TextField fx:id="idfield" layoutX="200.0" layoutY="60.0" />
+                        <TextField fx:id="namefield" layoutX="200.0" layoutY="160.0" />
+                        <TextField fx:id="ctypefield" layoutX="200.0" layoutY="260.0" />
+                        <TextField fx:id="etypefield" layoutX="200.0" layoutY="360.0" />
+                        <TextField fx:id="ttypefield" layoutX="700.0" layoutY="60.0" />
+                        <TextField fx:id="ftypefield" layoutX="700.0" layoutY="160.0" />
+                        <TextField fx:id="mileagefield" layoutX="700.0" layoutY="260.0" />
+                        <Label layoutX="60.0" layoutY="60.0" text="CAR ID" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="58.0" layoutY="200.0" text="CAR NAME" textFill="WHITE">
+                        <Label layoutX="58.0" layoutY="160.0" text="CAR NAME" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="60.0" layoutY="300.0" prefHeight="21.0" prefWidth="70.0" text="CAR TYPE" textFill="WHITE">
+                        <Label layoutX="60.0" layoutY="260.0" prefHeight="21.0" prefWidth="70.0" text="CAR TYPE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="60.0" layoutY="400.0" text="ENGINE TYPE" textFill="WHITE">
+                        <Label layoutX="60.0" layoutY="360.0" text="ENGINE TYPE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="500.0" layoutY="100.0" text="TRANSMISSION TYPE" textFill="WHITE">
+                        <Label layoutX="500.0" layoutY="60.0" text="TRANSMISSION TYPE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="500.0" layoutY="200.0" prefHeight="21.0" prefWidth="86.0" text="FUEL TYPE" textFill="WHITE">
+                        <Label layoutX="500.0" layoutY="160.0" prefHeight="21.0" prefWidth="86.0" text="FUEL TYPE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="500.0" layoutY="300.0" prefHeight="21.0" prefWidth="75.0" text="MILEAGE" textFill="WHITE">
+                        <Label layoutX="500.0" layoutY="260.0" prefHeight="21.0" prefWidth="75.0" text="MILEAGE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="pricefield" layoutX="700.0" layoutY="400.0" />
-                        <Label layoutX="500.0" layoutY="400.0" prefHeight="21.0" prefWidth="75.0" text="PRICE" textFill="WHITE">
+                        <TextField fx:id="pricefield" layoutX="700.0" layoutY="360.0" />
+                        <Label layoutX="500.0" layoutY="360.0" prefHeight="21.0" prefWidth="75.0" text="PRICE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -162,6 +162,18 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
+                        <Label layoutX="60.0" layoutY="447.0" text="SHOWROOM ID" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="showid" layoutX="199.0" layoutY="434.0" />
+                        <Label layoutX="500.0" layoutY="417.0" prefHeight="21.0" prefWidth="137.0" text="NUMBER OF CARS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="number" layoutX="701.0" layoutY="413.0" />
                      </children>
                   </AnchorPane>
                </children>
