@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 public class CredentialsHandler {
     private static final String currentWorkingDirectory = Paths.get("").toAbsolutePath().toString();
 
-    private static String currentWorkingAdmin = "Logan";
-    private static String currentWorkingUser;
+    private static Admin currentWorkingAdmin;
+    private static User currentWorkingUser;
 
     public static void initialize(){    //This function is to be called everytime the application is launched
         File adminsDirectory = new File(currentWorkingDirectory + "/admins");
@@ -29,13 +29,11 @@ public class CredentialsHandler {
         }
     }
 
-    public static String getAdmin(){
+    public static Admin getAdmin(){
         return currentWorkingAdmin;
     }
 
-    public static String getUser(){
-        return currentWorkingUser;
-    }
+    public static User getUser(){return currentWorkingUser;}
 
     public static boolean checkCompanyAlreadyExists(String company, boolean isAdmin) {        //This function is used to check if there exists a database manager file with the same name. Returns true if it exists, else false
         try {
@@ -120,7 +118,7 @@ public class CredentialsHandler {
                 Admin admin = (Admin) in.readObject();
 
                 if (admin.Password.equals(password)) {
-                    currentWorkingAdmin = admin.Username;
+                    currentWorkingAdmin = admin;
                     return admin.CompanyName;
                 }
                 else {
@@ -145,7 +143,7 @@ public class CredentialsHandler {
                 User user = (User)out.readObject();
 
                 if (user.Password.equals(password)) {
-                    currentWorkingUser = user.Username;
+                    currentWorkingUser = user;
                     return user.CompanyName;
                 }
                 else {
