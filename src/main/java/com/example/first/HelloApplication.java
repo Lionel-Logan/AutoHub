@@ -51,7 +51,7 @@ public class HelloApplication extends Application {
         launch();
         CredentialsHandler.initialize();
 
-        DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
+        /*DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
         User user = new User();
         user.Username = "Navneet";
         user.Password = "bleh";
@@ -62,7 +62,6 @@ public class HelloApplication extends Application {
         user.IsManager = false;
         DatabaseHandler.generateSQLQuery("UserAccountCreation", user, "");
 
-        /*
         Admin admin = new Admin();
         admin.Username = "Logan";
         admin.Password = "4567";

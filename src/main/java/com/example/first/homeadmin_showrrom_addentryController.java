@@ -68,6 +68,10 @@ public class homeadmin_showrrom_addentryController implements Initializable {
     private Button confirm;
     @FXML
     private Label message;
+    @FXML
+    private TextField showroomid;
+    @FXML
+    private TextField noofcars;
 
 
     ;
@@ -230,8 +234,10 @@ public class homeadmin_showrrom_addentryController implements Initializable {
         String fueltype = ftypefield.getText();
         String mileage = mileagefield.getText();
         String price = pricefield.getText();
+        String showid = showroomid.getText();
+        String number = noofcars.getText();
 
-        if(id.equals("")  || name.equals("") || cartype.equals("") || enginetype.equals("") || transtype.equals("") || fueltype.equals("") || mileage.equals("")|| price.equals("")){
+        if(id.equals("")  || name.equals("") || cartype.equals("") || enginetype.equals("") || transtype.equals("") || fueltype.equals("") || mileage.equals("")|| price.equals("")|| showid.equals("")|| number.equals("")){
             confirm.setDisable(true);
             message.setText("enter all credentials");
         }
@@ -250,6 +256,8 @@ public class homeadmin_showrrom_addentryController implements Initializable {
         String fueltype = ftypefield.getText();
         String mileage = mileagefield.getText();
         String price = pricefield.getText();
+        String showid = showroomid.getText();
+        String number = noofcars.getText();
 
         Car car = new Car();
         car.CarID = id;
@@ -260,6 +268,8 @@ public class homeadmin_showrrom_addentryController implements Initializable {
         car.FuelCapacity = fueltype;
         car.Mileage = mileage;
         car.Price = price;
+        car.ShowroomID=showid;
+        car.Count=number;
 
         DatabaseHandler.generateSQLQuery("AddCar", car, "");
     }

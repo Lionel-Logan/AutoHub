@@ -32,6 +32,7 @@ public class loginController {
 
     public void login(ActionEvent event)throws Exception{
 
+
         String username = userfield.getText();
         String pass = passfield.getText();
         String mysqlusername = mysqluserfield.getText();
@@ -40,9 +41,14 @@ public class loginController {
         String companyname = CredentialsHandler.login(username,pass);
         DatabaseHandler.connectDatabase(mysqlusername,mysqlpass,companyname,port);
 
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin.fxml"));
-        root = loader.load();
+        if(CredentialsHandler.isAdmin==true) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin.fxml"));
+            root = loader.load();
+        }
+        else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeuser.fxml"));
+            root = loader.load();
+        }
 
         //homeController home = loader.getController();
         //home.display(username,pass);
@@ -54,6 +60,7 @@ public class loginController {
         scene=new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public void signin(ActionEvent event)throws Exception{
