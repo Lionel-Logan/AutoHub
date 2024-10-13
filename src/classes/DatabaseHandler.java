@@ -249,6 +249,7 @@ public class DatabaseHandler {
                 CredentialsHandler.initializeImageFolderFor(car.CarID, car.Name);
                 updateDatabaseManager(sql + "\n");
                 sql = "INSERT INTO Availability VALUES (" + car.CarID + ", " + car.ShowroomID + ", " + car.Count + ")";
+                st.executeUpdate(sql);
                 updateDatabaseManager(sql + "\n");
                 return 1;
 
@@ -278,6 +279,7 @@ public class DatabaseHandler {
                 CredentialsHandler.updateImageFolderFor(conditionInput, carName, car2.Name);
                 updateDatabaseManager(sql + "\n");
                 sql = "UPDATE Availability SET SHOWROOM_ID = " + car2.ShowroomID + ", COUNT = " + car2.Count + " WHERE CAR_ID = " + conditionInput;
+                st.executeUpdate(sql);
                 updateDatabaseManager(sql + "\n");
                 return 1;
 
