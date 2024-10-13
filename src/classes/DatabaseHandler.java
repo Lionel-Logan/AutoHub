@@ -1,9 +1,6 @@
 package classes;
 
-import classes.database.Car;
-import classes.database.Employee;
-import classes.database.Manager;
-import classes.database.User;
+import classes.database.*;
 import classes.exceptions.CompanyNotFoundException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -107,6 +104,7 @@ public class DatabaseHandler {
                             sql += (char)c;
                         }
                         else{
+                            System.out.println(sql);
                             st.executeUpdate(sql);
                             sql = "";
                         }
@@ -187,6 +185,12 @@ public class DatabaseHandler {
                 updateDatabaseManager(sql + "\n");
                 return 1;
 
+            case "EraseTable":
+                sql = "TRUNCATE TABLE " + conditionInput;
+                st.executeUpdate(sql);
+                updateDatabaseManager(sql + "\n");
+                return 1;
+
             default:
                 return -1;
         }
@@ -203,6 +207,20 @@ public class DatabaseHandler {
                 updateDatabaseManager(sql + "\n");
                 return 1;
 
+            case "AddShowroom":
+                Showroom showroom = (Showroom) obj;
+                sql = "INSERT INTO Showrooms VALUES (" + showroom.ID + ", '" + showroom.Ownership + "', '" + showroom.Location + "', '" + showroom.Country + "', " + showroom.ManagerID + ")";
+                st.executeUpdate(sql);
+                updateDatabaseManager(sql + "\n");
+                return 1;
+
+            case "AddDivision":
+                Division division = (Division) obj;
+                sql = "INSERT INTO Divisions VALUES (" + division.ID + ", '" + division.Name + "', " + division.ManagerID + ")";
+                st.executeUpdate(sql);
+                updateDatabaseManager(sql + "\n");
+                return 1;
+
             case "UpdateCar":
                 Car car2 = (Car) obj;
                 rs = st.executeQuery("SELECT CAR_NAME FROM Cars WHERE CAR_ID = " + conditionInput);
@@ -213,6 +231,13 @@ public class DatabaseHandler {
                 sql = "UPDATE Cars SET CAR_NAME = '" + car2.Name + "', CAR_TYPE = '" + car2.CarType + "', ENGINE_TYPE = '" + car2.EngineType + "', TRANSMISSION_TYPE = '" + car2.FuelCapacity + "', FUEL_CAPACITY = '" + car2.FuelCapacity + "', MILEAGE = '" + car2.Mileage + "', PRICE = '" + car2.Price + "' WHERE CAR_ID = " + conditionInput;
                 st.executeUpdate(sql);
                 CredentialsHandler.updateImageFolderFor(conditionInput, carName, car2.Name);
+                updateDatabaseManager(sql + "\n");
+                return 1;
+
+            case "UpdateShowroom":
+                Showroom showroom2 = (Showroom) obj;
+                sql = "UPDATE Showrooms SET OWNERSHIP = '" + showroom2.Ownership + "', LOCATION = '" + showroom2.Location + "', COUNTRY = '" + showroom2.Country + "', MGR_ID = '" + showroom2.ManagerID + "' WHERE SHOWROOM_ID = " + conditionInput;
+                st.executeUpdate(sql);
                 updateDatabaseManager(sql + "\n");
                 return 1;
 

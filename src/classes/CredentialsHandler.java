@@ -9,6 +9,9 @@ import java.nio.file.Paths;
 public class CredentialsHandler {
     private static final String currentWorkingDirectory = Paths.get("").toAbsolutePath().toString();
 
+    private static String currentWorkingAdmin = "Logan";
+    private static String currentWorkingUser;
+
     public static void initialize(){    //This function is to be called everytime the application is launched
         File adminsDirectory = new File(currentWorkingDirectory + "/admins");
         if (!adminsDirectory.exists()) {
@@ -24,6 +27,14 @@ public class CredentialsHandler {
         if(!imagesDirectory.exists()){
             imagesDirectory.mkdirs();
         }
+    }
+
+    public static String getAdmin(){
+        return currentWorkingAdmin;
+    }
+
+    public static String getUser(){
+        return currentWorkingUser;
     }
 
     public static boolean checkCompanyAlreadyExists(String company, boolean isAdmin) {        //This function is used to check if there exists a database manager file with the same name. Returns true if it exists, else false
@@ -78,15 +89,13 @@ public class CredentialsHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        File adminManager = new File(admin.CompanyName + ".adm");
-        try {
-            FileWriter fw = new FileWriter(adminManager);
-            fw.write(admin.Username + " " + admin.Password + "\n");
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void updateAdmin(Admin admin) throws IOException{
+        FileOutputStream fw = new FileOutputStream(currentWorkingDirectory + "/admins/" + getAdmin() + ".ad");
+        ObjectOutputStream in = new ObjectOutputStream(fw);
+        in.writeObject(admin);
+        in.close();
     }
 
     public static void signUpAsUser(User user) {         //This function is used to login as User by checking the user files and the user manager file
@@ -97,15 +106,6 @@ public class CredentialsHandler {
             ObjectOutputStream out = new ObjectOutputStream(fout);
             out.writeObject(user);
             out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        File userManager = new File(user.CompanyName + ".usrm");
-        try {
-            FileWriter fw = new FileWriter(userManager);
-            fw.append(user.Username + " " + user.Password + "\n");
-            fw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -120,6 +120,7 @@ public class CredentialsHandler {
                 Admin admin = (Admin) in.readObject();
 
                 if (admin.Password.equals(password)) {
+                    currentWorkingAdmin = admin.Username;
                     return admin.CompanyName;
                 }
                 else {
@@ -144,6 +145,7 @@ public class CredentialsHandler {
                 User user = (User)out.readObject();
 
                 if (user.Password.equals(password)) {
+                    currentWorkingUser = user.Username;
                     return user.CompanyName;
                 }
                 else {

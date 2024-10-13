@@ -2,9 +2,7 @@ package com.example.first;
 
 import classes.CredentialsHandler;
 import classes.DatabaseHandler;
-import classes.database.Car;
-import classes.database.Employee;
-import classes.database.Manager;
+import classes.database.*;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -14,9 +12,14 @@ import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 public class HelloApplication extends Application {
     @Override
@@ -58,8 +61,17 @@ public class HelloApplication extends Application {
         CredentialsHandler.initialize();
 
         /*
+        Admin admin = new Admin();
+        admin.Username = "Logan";
+        admin.Password = "4567";
+        admin.CompanyName = "Audi";
+        CredentialsHandler.updateAdmin(admin);
 
         DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
+        DatabaseHandler.generateSQLQuery("EraseTable", "Divisions");
+
+
+
         ObservableList<Manager> cars = DatabaseHandler.retrieveManagers("All");
         for(Manager i : cars){
             System.out.println(i.ID);

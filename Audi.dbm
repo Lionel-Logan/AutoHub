@@ -31,3 +31,7 @@ DELETE FROM Cars WHERE CAR_ID = 90
 INSERT INTO Cars VALUES (1, 'grand i10', 'racecar', 'v8', 'manual', 'petrol', '12', '7lakh')
 insert into managers values (1,'ash',25,'m','dubai');
 INSERT INTO Cars VALUES (5, '1212', 'dsd', 'dfs', 'sdf', 'sdfs', 'df', 'sdf')
+INSERT INTO Showrooms VALUES (1, 'Kairali', 'Kerala', 'India', 1)
+UPDATE Showrooms SET OWNERSHIP = 'Kairali', LOCATION = 'Tamil Nadu', COUNTRY = 'India', MGR_ID = '1' WHERE SHOWROOM_ID = 1
+INSERT INTO Divisions VALUES (1, 'Sales', 1)
+TRUNCATE TABLE Divisions
