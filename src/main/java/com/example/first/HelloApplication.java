@@ -51,7 +51,8 @@ public class HelloApplication extends Application {
         launch();
         CredentialsHandler.initialize();
 
-        /*DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
+        /*
+        DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
         User user = new User();
         user.Username = "Navneet";
         user.Password = "bleh";

@@ -186,6 +186,9 @@ public class DatabaseHandler {
                 }
 
             case "DeleteCar":
+                sql = "DELETE FROM Availability WHERE CAR_ID = " + conditionInput;
+                st.executeUpdate(sql);
+                updateDatabaseManager(sql + "\n");
                 sql = "DELETE FROM Cars WHERE CAR_ID = " + conditionInput;
                 st.executeUpdate(sql);
                 updateDatabaseManager(sql + "\n");
