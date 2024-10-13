@@ -71,11 +71,11 @@ public class DatabaseHandler {
                 st.executeUpdate(tsql = "CREATE TABLE Availability (CAR_ID INT PRIMARY KEY, SHOWROOM_ID INT, COUNT INT)");
                 sql += tsql + "\n";
 
-                st.executeUpdate(tsql = "ALTER TABLE Availability ADD FOREIGN KEY(SHOWROOM_ID) REFERENCES Showrooms(SHOWROOM_ID)");
+                st.executeUpdate(tsql = "ALTER TABLE Availability ADD FOREIGN KEY(SHOWROOM_ID) REFERENCES Showrooms(SHOWROOM_ID) ON DELETE SET NULL");
                 sql += tsql + "\n";
-                st.executeUpdate(tsql = "ALTER TABLE Showrooms ADD FOREIGN KEY(MGR_ID) REFERENCES Managers(MGR_ID)");
+                st.executeUpdate(tsql = "ALTER TABLE Showrooms ADD FOREIGN KEY(MGR_ID) REFERENCES Managers(MGR_ID) ON DELETE SET NULL");
                 sql += tsql + "\n";
-                st.executeUpdate(tsql = "ALTER TABLE Divisions ADD FOREIGN KEY(MGR_ID) REFERENCES Managers(MGR_ID)");
+                st.executeUpdate(tsql = "ALTER TABLE Divisions ADD FOREIGN KEY(MGR_ID) REFERENCES Managers(MGR_ID) ON DELETE SET NULL");
                 sql += tsql + "\n";
                 st.executeUpdate(tsql = "ALTER TABLE Availability ADD FOREIGN KEY(CAR_ID) REFERENCES Cars(CAR_ID)");
                 sql += tsql + "\n";
