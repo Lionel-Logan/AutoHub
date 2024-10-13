@@ -66,3 +66,9 @@ DELETE FROM Availability WHERE CAR_ID = 2
 DELETE FROM Cars WHERE CAR_ID = 2
 INSERT INTO Managers VALUES (235, 'Navneet', 19, 'male', 'Kochi')
 INSERT INTO Employees VALUES (119, 'Nikhil', 21, 'male', 'Kochi')
+DELETE FROM Availability WHERE CAR_ID = 7
+DELETE FROM Cars WHERE CAR_ID = 7
+UPDATE Cars SET CAR_NAME = 'waganor', CAR_TYPE = 'aasd', ENGINE_TYPE = 'dfs', TRANSMISSION_TYPE = 'sdf', FUEL_CAPACITY = 'sdfs', MILEAGE = 'df', PRICE = 'sdf' WHERE CAR_ID = 5
+UPDATE Availability SET SHOWROOM_ID = 1, COUNT = 70 WHERE CAR_ID = 5
+DELETE FROM Availability WHERE CAR_ID = 5
+DELETE FROM Cars WHERE CAR_ID = 5

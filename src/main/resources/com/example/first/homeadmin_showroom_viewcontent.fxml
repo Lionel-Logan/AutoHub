@@ -100,17 +100,19 @@
                <children>
                   <AnchorPane fx:id="updateentrypane" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="id" prefWidth="76.0" style="-fx-background-color: white;" text="ID" />
-                            <TableColumn fx:id="name" prefWidth="129.0" style="-fx-background-color: white;" text="NAME" />
-                              <TableColumn fx:id="type" prefWidth="118.0" style="-fx-background-color: white;" text="TYPE" />
-                              <TableColumn fx:id="engine" prefWidth="123.0" style="-fx-background-color: white;" text="ENGINE" />
-                              <TableColumn fx:id="transmission" prefWidth="125.0" style="-fx-background-color: white;" text="TRANSMISSION" />
-                              <TableColumn fx:id="fuel" prefWidth="114.0" style="-fx-background-color: white;" text="FUEL" />
-                              <TableColumn fx:id="mileage" prefWidth="94.0" style="-fx-background-color: white;" text="MILEAGE" />
-                              <TableColumn fx:id="price" prefWidth="92.0" style="-fx-background-color: white;" text="PRICE" />
-                              <TableColumn fx:id="imageview" prefWidth="95.0" style="-fx-background-color: white;" />
+                            <TableColumn fx:id="id" prefWidth="56.0" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="91.0" text="NAME" />
+                              <TableColumn fx:id="type" prefWidth="87.0" text="TYPE" />
+                              <TableColumn fx:id="engine" prefWidth="88.0" text="ENGINE" />
+                              <TableColumn fx:id="transmission" prefWidth="120.0" text="TRANSMISSION" />
+                              <TableColumn fx:id="fuel" prefWidth="78.0" text="FUEL" />
+                              <TableColumn fx:id="mileage" prefWidth="84.0" text="MILEAGE" />
+                              <TableColumn fx:id="price" prefWidth="78.0" text="PRICE" />
+                              <TableColumn fx:id="showroomid" prefWidth="112.0" text="SHOWROOM" />
+                              <TableColumn fx:id="number" prefWidth="72.0" text="COUNT" />
+                              <TableColumn fx:id="imageview" prefWidth="100.0" />
                           </columns>
                         </TableView>
                      </children>

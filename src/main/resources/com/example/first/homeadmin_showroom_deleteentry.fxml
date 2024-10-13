@@ -102,15 +102,17 @@
                      <children>
                         <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="id" prefWidth="76.0" text="ID" />
-                            <TableColumn fx:id="name" prefWidth="129.0" text="NAME" />
-                              <TableColumn fx:id="type" prefWidth="118.0" style="-fx-background-color: white;" text="TYPE" />
-                              <TableColumn fx:id="engine" prefWidth="123.0" style="-fx-background-color: white;" text="ENGINE" />
-                              <TableColumn fx:id="transmission" prefWidth="125.0" style="-fx-background-color: white;" text="TRANSMISSION" />
-                              <TableColumn fx:id="fuel" prefWidth="114.0" style="-fx-background-color: white;" text="FUEL" />
-                              <TableColumn fx:id="mileage" prefWidth="94.0" style="-fx-background-color: white;" text="MILEAGE" />
-                              <TableColumn fx:id="price" prefWidth="92.0" style="-fx-background-color: white;" text="PRICE" />
-                              <TableColumn fx:id="imageview" prefWidth="95.0" style="-fx-background-color: white;" text="VIEW" />
+                            <TableColumn fx:id="id" prefWidth="67.0" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="96.0" text="NAME" />
+                              <TableColumn fx:id="type" prefWidth="83.0" text="TYPE" />
+                              <TableColumn fx:id="engine" prefWidth="105.0" text="ENGINE" />
+                              <TableColumn fx:id="transmission" prefWidth="132.0" text="TRANSMISSION" />
+                              <TableColumn fx:id="fuel" prefWidth="79.0" text="FUEL" />
+                              <TableColumn fx:id="mileage" prefWidth="76.0" text="MILEAGE" />
+                              <TableColumn fx:id="price" prefWidth="67.0" text="PRICE" />
+                              <TableColumn fx:id="showroomid" prefWidth="100.0" text="SHOWROOM" />
+                              <TableColumn fx:id="number" prefWidth="76.0" text="COUNT" />
+                              <TableColumn fx:id="imageview" prefWidth="84.0" />
                           </columns>
                         </TableView>
                      </children>

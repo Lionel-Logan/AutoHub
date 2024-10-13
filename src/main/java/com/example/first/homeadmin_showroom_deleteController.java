@@ -76,6 +76,11 @@ public class homeadmin_showroom_deleteController implements Initializable {
 
     @FXML
     private TableColumn<Car, String> price;
+    @FXML
+    private TableColumn<Car, String> showroomid;
+
+    @FXML
+    private TableColumn<Car, String> number;
 
     @FXML
     private TableColumn<Car, Button> imageview;
@@ -100,6 +105,8 @@ public class homeadmin_showroom_deleteController implements Initializable {
             fuel.setCellValueFactory(new PropertyValueFactory<Car,String>("FuelCapacity"));
             mileage.setCellValueFactory(new PropertyValueFactory<Car,String>("Mileage"));
             price.setCellValueFactory(new PropertyValueFactory<Car,String>("Price"));
+            showroomid.setCellValueFactory(new PropertyValueFactory<Car,String>("ShowroomID"));
+            number.setCellValueFactory(new PropertyValueFactory<Car,String>("Count"));
             imageview.setCellValueFactory(new PropertyValueFactory<Car,Button>("button"));
 
             for(int i = 0; i < list.size(); i++) {
