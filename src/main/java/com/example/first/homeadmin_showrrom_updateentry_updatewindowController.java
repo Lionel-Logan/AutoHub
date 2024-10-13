@@ -69,7 +69,21 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
     @FXML
     private Label message;
 
-    private String update_id;
+    public String update_id;
+
+    public String update_name;
+
+    public String update_type;
+
+    public String update_engine;
+
+    public String update_transmission;
+
+    public String update_fuel;
+
+    public String update_mileage;
+
+    public String update_price;
 
 
     ;
@@ -78,8 +92,8 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
         //exit.setOnMouseClicked(event ->{
         //    System.exit(0);
         //})
-        homeadmin_showroom_updateentryController updateobject = new homeadmin_showroom_updateentryController();
-        idfield.setText(updateobject.update_id);
+        //homeadmin_showroom_updateentryController updateobject = new homeadmin_showroom_updateentryController();
+        //idfield.setText(updateobject.update_id);
         idfield.setEditable(false);
         confirm.setDisable(true);
         slider.setTranslateX(0);
@@ -118,9 +132,30 @@ public class homeadmin_showrrom_updateentry_updatewindowController implements In
 
     }
 
-    public void setUpdateId(String update_id) {
+    public void setUpdateId(String update_id,String update_name,String update_type,String update_engine,String update_transmission,String update_fuel,String update_mileage,String update_price) {
         this.update_id = update_id;
-        idfield.setText(update_id); // Set the update_id into the TextField
+        idfield.setText(update_id);
+
+        this.update_name = update_name;
+        namefield.setText(update_name);
+
+        this.update_type = update_type;
+        ctypefield.setText(update_type);
+
+        this.update_engine = update_engine;
+        etypefield.setText(update_engine);
+
+        this.update_transmission = update_transmission;
+        ttypefield.setText(update_transmission);
+
+        this.update_fuel = update_fuel;
+        ftypefield.setText(update_fuel);
+
+        this.update_mileage = update_mileage;
+        mileagefield.setText(update_mileage);
+
+        this.update_price = update_price;
+        pricefield.setText(update_price);
     }
 
     public void showroom(ActionEvent event)throws Exception{

@@ -63,7 +63,6 @@ public class signupUserController_1 implements Initializable{
         User user_object = new User();
         user_object.Username=username;
         user_object.Password=password;
-        user_object.name=name;
         user_object.Age=age;
         user_object.Place=residence;
         user_object.Sex=sex;

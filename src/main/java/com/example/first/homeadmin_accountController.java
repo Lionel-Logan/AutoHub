@@ -1,4 +1,7 @@
 package com.example.first;
+import classes.CredentialsHandler;
+import classes.DatabaseHandler;
+import classes.database.Admin;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -45,21 +50,13 @@ public class homeadmin_accountController implements Initializable {
     public Parent root;
 
     @FXML
-    private TextField idfield;
+    private TextField userfield;
+
     @FXML
-    private TextField namefield;
+    private TextField passfield;
+
     @FXML
-    private TextField ctypefield;
-    @FXML
-    private TextField etypefield;
-    @FXML
-    private TextField ttypefield;
-    @FXML
-    private TextField ftypefield;
-    @FXML
-    private TextField mileagefield;
-    @FXML
-    private TextField pricefield;
+    private Button change;
 
 
 
@@ -70,7 +67,9 @@ public class homeadmin_accountController implements Initializable {
         //    System.exit(0);
         //});
         slider.setTranslateX(0);
-
+        Admin obj = CredentialsHandler.getAdmin();
+        userfield.setText(obj.Username);
+        passfield.setText(obj.Password);
         menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
@@ -151,6 +150,51 @@ public class homeadmin_accountController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void logout(ActionEvent event)throws Exception{
+        DatabaseHandler.disconnectDatabase();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/login.fxml"));
+        root = loader.load();
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(400);
+        stage.setHeight(600);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void change(ActionEvent event)throws Exception{
+        String username=userfield.getText();
+        String password=passfield.getText();
+        System.out.println(username);
+        System.out.println(password);
+        Admin update = CredentialsHandler.getAdmin();
+        update.Username=userfield.getText();
+        update.Password=passfield.getText();
+        System.out.println(update.Password);
+
+        CredentialsHandler.updateAdmin(update);
+        DatabaseHandler.disconnectDatabase();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/login.fxml"));
+        root = loader.load();
+        //homeController home = loader.getController();
+        //home.display(username,pass);
+        //Parent root = FXMLLoader.load(getClass().getResource("/com/example/first/login.fxml"));
+        stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setWidth(400);
+        stage.setHeight(600);
+        stage.centerOnScreen();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
+
 
 
 }

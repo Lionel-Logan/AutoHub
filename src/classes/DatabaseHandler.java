@@ -43,6 +43,7 @@ public class DatabaseHandler {
     public static void disconnectDatabase() throws SQLException {    //This function is to be called upon closing the application
         conn.close();
         isConnected = false;
+        url="jdbc:mysql://localhost:";
     }
 
     public static void executeDatabaseManager() throws IOException {  //This function is used to load the database manager file from local computers and synchronize databases across all remote computers

@@ -82,6 +82,22 @@ public class homeadmin_showroom_updateentryController implements Initializable {
 
     public String update_id;
 
+    public String update_name;
+
+    public String update_type;
+
+    public String update_engine;
+
+    public String update_transmission;
+
+    public String update_fuel;
+
+    public String update_mileage;
+
+    public String update_price;
+
+
+
 
 
 
@@ -111,7 +127,13 @@ public class homeadmin_showroom_updateentryController implements Initializable {
                 button.setOnAction(event -> {
                     try {
                         update_id = list.get(finalI).CarID;
-                        System.out.println(update_id);
+                        update_name = list.get(finalI).Name;
+                        update_type = list.get(finalI).CarType;
+                        update_engine = list.get(finalI).EngineType;
+                        update_transmission = list.get(finalI).TransmissionType;
+                        update_fuel = list.get(finalI).FuelCapacity;
+                        update_mileage = list.get(finalI).Mileage;
+                        update_price = list.get(finalI).Price;
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/first/homeadmin_updateentry_updatewindow.fxml"));
                         root = loader.load();
 
@@ -121,7 +143,7 @@ public class homeadmin_showroom_updateentryController implements Initializable {
                         homeadmin_showrrom_updateentry_updatewindowController updateWindowController = loader.getController();
 
                         // Pass the update_id to the update window controller
-                        updateWindowController.setUpdateId(update_id); // Use a setter method
+                        updateWindowController.setUpdateId(update_id,update_name,update_type,update_engine,update_transmission,update_fuel,update_mileage,update_price); // Use a setter method
 
                         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
                         stage.setWidth(1100);

@@ -90,7 +90,7 @@ public class CredentialsHandler {
     }
 
     public static void updateAdmin(Admin admin) throws IOException{
-        FileOutputStream fw = new FileOutputStream(currentWorkingDirectory + "/admins/" + getAdmin() + ".ad");
+        FileOutputStream fw = new FileOutputStream(currentWorkingDirectory + "/admins/" + getAdmin().Username + ".ad");
         ObjectOutputStream in = new ObjectOutputStream(fw);
         in.writeObject(admin);
         in.close();
