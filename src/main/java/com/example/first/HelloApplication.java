@@ -4,11 +4,9 @@ import classes.CredentialsHandler;
 import classes.DatabaseHandler;
 import classes.database.*;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import java.io.IOException;
@@ -53,15 +51,7 @@ public class HelloApplication extends Application {
         launch();
         CredentialsHandler.initialize();
 
-        /*
-        DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
-        DatabaseHandler.generateSQLQuery("DeleteManager", "2");
-
-        ObservableList<Car> cars = DatabaseHandler.retrieveCars("grand i10");
-
-        System.out.println(cars.get(0).Count);
-
-
+        /*DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
         User user = new User();
         user.Username = "Navneet";
         user.Password = "bleh";

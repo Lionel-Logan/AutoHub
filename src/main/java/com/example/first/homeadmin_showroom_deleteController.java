@@ -104,6 +104,7 @@ public class homeadmin_showroom_deleteController implements Initializable {
 
             for(int i = 0; i < list.size(); i++) {
                 Button button = list.get(i).getButton();
+                button.setText("DELETE");
                 int finalI = i;
                 button.setOnAction(event -> {
                     try {

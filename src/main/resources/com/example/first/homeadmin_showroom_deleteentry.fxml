@@ -18,13 +18,13 @@
    <children>
       <BorderPane layoutX="200.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <AnchorPane prefHeight="335.0" prefWidth="133.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="335.0" prefWidth="133.0" style="-fx-background-color: #0a4969;" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane fx:id="slider" prefHeight="633.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="slider" prefHeight="633.0" prefWidth="200.0" style="-fx-background-color: #0a4969;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <VBox prefHeight="633.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+                        <VBox prefHeight="633.0" prefWidth="135.0" style="-fx-background-color: #0a4969;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button fx:id="showroombutton" mnemonicParsing="false" onAction="#showroom" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="ShowRoom">
+                              <Button fx:id="showroombutton" mnemonicParsing="false" onAction="#showroom" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #0a4969;" text="ShowRoom" textFill="WHITE">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -32,12 +32,12 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="companybutton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#company" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="Company">
+                              <Button fx:id="companybutton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#company" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #0a4969;" text="Company" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#account" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #fffdd0;" text="Account">
+                              <Button layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#account" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #0a4969;" text="Account" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -91,7 +91,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #fffdd0;" />
+                  <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #0a4969;" />
                </children>
             </AnchorPane>
          </top>
@@ -102,15 +102,15 @@
                      <children>
                         <TableView fx:id="table" layoutX="143.0" layoutY="97.0" prefHeight="633.0" prefWidth="967.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="id" prefWidth="76.0" style="-fx-background-color: #fffdd0;" text="ID" />
-                            <TableColumn fx:id="name" prefWidth="129.0" style="-fx-background-color: #fffdd0;" text="NAME" />
-                              <TableColumn fx:id="type" prefWidth="118.0" style="-fx-background-color: #fffdd0;" text="TYPE" />
-                              <TableColumn fx:id="engine" prefWidth="123.0" style="-fx-background-color: #fffdd0;" text="ENGINE" />
-                              <TableColumn fx:id="transmission" prefWidth="125.0" style="-fx-background-color: #fffdd0;" text="TRANSMISSION" />
-                              <TableColumn fx:id="fuel" prefWidth="114.0" style="-fx-background-color: #fffdd0;" text="FUEL" />
-                              <TableColumn fx:id="mileage" prefWidth="94.0" style="-fx-background-color: #fffdd0;" text="MILEAGE" />
-                              <TableColumn fx:id="price" prefWidth="92.0" style="-fx-background-color: #fffdd0;" text="PRICE" />
-                              <TableColumn fx:id="imageview" prefWidth="95.0" text="VIEW" />
+                            <TableColumn fx:id="id" prefWidth="76.0" style="-fx-background-color: white;" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="129.0" style="-fx-background-color: white;" text="NAME" />
+                              <TableColumn fx:id="type" prefWidth="118.0" style="-fx-background-color: white;" text="TYPE" />
+                              <TableColumn fx:id="engine" prefWidth="123.0" style="-fx-background-color: white;" text="ENGINE" />
+                              <TableColumn fx:id="transmission" prefWidth="125.0" style="-fx-background-color: white;" text="TRANSMISSION" />
+                              <TableColumn fx:id="fuel" prefWidth="114.0" style="-fx-background-color: white;" text="FUEL" />
+                              <TableColumn fx:id="mileage" prefWidth="94.0" style="-fx-background-color: white;" text="MILEAGE" />
+                              <TableColumn fx:id="price" prefWidth="92.0" style="-fx-background-color: white;" text="PRICE" />
+                              <TableColumn fx:id="imageview" prefWidth="95.0" style="-fx-background-color: white;" text="VIEW" />
                           </columns>
                         </TableView>
                      </children>

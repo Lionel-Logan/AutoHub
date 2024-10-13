@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -68,7 +70,7 @@
                   <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #0a4969;" />
                   <HBox fx:id="companybox" layoutX="128.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="5.0" prefWidth="967.0" AnchorPane.topAnchor="35.0">
                      <children>
-                        <Button fx:id="addentry1" layoutX="600.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewEmployee">
+                        <Button fx:id="addentry1" layoutX="600.0" layoutY="100.0" mnemonicParsing="false" onAction="#company_viewemployee" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewEmployee">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -96,7 +98,19 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE;" styleClass="root" stylesheets="@homepage.css" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane fx:id="addentrypane" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane fx:id="addentrypane" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="table" layoutX="157.0" layoutY="82.0" prefHeight="633.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="id" prefWidth="167.0" text="ID" />
+                            <TableColumn fx:id="name" prefWidth="219.0" text="NAME" />
+                              <TableColumn fx:id="age" prefWidth="158.0" text="AGE" />
+                              <TableColumn fx:id="sex" prefWidth="146.0" text="SEX" />
+                              <TableColumn fx:id="place" prefWidth="142.0" text="PLACE" />
+                              <TableColumn fx:id="imageview" prefWidth="132.0" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
                </children>
             </AnchorPane>
          </center>

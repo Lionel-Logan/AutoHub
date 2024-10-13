@@ -68,7 +68,7 @@
                   <Pane prefHeight="35.0" prefWidth="1100.0" style="-fx-background-color: #0a4969;" />
                   <HBox fx:id="companybox" layoutX="128.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="5.0" prefWidth="967.0" AnchorPane.topAnchor="35.0">
                      <children>
-                        <Button fx:id="addentry1" layoutX="600.0" layoutY="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewEmployee">
+                        <Button fx:id="addentry1" layoutX="600.0" layoutY="100.0" mnemonicParsing="false" onAction="#company_viewemployee" prefHeight="40.0" prefWidth="242.0" style="-fx-background-color: white;" text="ViewEmployee">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
