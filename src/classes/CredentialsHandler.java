@@ -105,6 +105,7 @@ public class CredentialsHandler {
 
     public static void signUpAsUser(User user) throws SQLException, IOException {         //This function is used to login as User by checking the user files and the user manager file
         File userFile = new File(currentWorkingDirectory + "/users/" + user.Username + ".usr");
+        DatabaseHandler.connectDatabase("root", "root", user.CompanyName, "3306");
         DatabaseHandler.generateSQLQuery("UserAccountCreation", user, "");
         try {
             FileOutputStream fout = new FileOutputStream(userFile);
@@ -114,6 +115,7 @@ public class CredentialsHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        DatabaseHandler.disconnectDatabase();
     }
 
     public static String login(String username, String password) throws InvalidCredentialsException, AccountNotFoundException {       //This function is used to login to the desired account. If admin account, it returns 0. If user account, it returns 1. If account was not found, an AccountNotFoundException is thrown. If a password mismatch is found, an InvalidCredentialsException is thrown. If any exceptions, -1 is returned.
