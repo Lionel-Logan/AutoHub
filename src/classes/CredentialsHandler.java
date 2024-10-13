@@ -2,19 +2,18 @@ package classes;
 
 import classes.database.*;
 import classes.exceptions.*;
-import javafx.scene.chart.PieChart;
 
 import java.io.*;
 import java.nio.file.Paths;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class CredentialsHandler {
     private static final String currentWorkingDirectory = Paths.get("").toAbsolutePath().toString();
     public static boolean isAdmin = false;
 
     private static Admin currentWorkingAdmin;
-    private static User currentWorkingUser;
+    private static User currentManager;
+    private static Employee currentEmployee;
 
     public static void initialize(){    //This function is to be called everytime the application is launched
         File adminsDirectory = new File(currentWorkingDirectory + "/admins");
@@ -37,19 +36,12 @@ public class CredentialsHandler {
         return currentWorkingAdmin;
     }
 
-    public static User getUser(){return currentWorkingUser;}
-
-    public static boolean checkCompanyAlreadyExists(String company, boolean isAdmin) {        //This function is used to check if there exists a database manager file with the same name. Returns true if it exists, else false
+    public static boolean checkIfCompanyAlreadyExists(String company) {        //This function is used to check if there exists a database manager file with the same name. Returns true if it exists, else false
         try {
-            if (isAdmin) {
-                new FileReader(company + ".adm");
-                return true;
-            } else {
-                new FileReader(company + ".usrm");
-                return true;
-            }
-        } catch (FileNotFoundException e) {
+            new FileReader(company + ".dbm");
             return true;
+        } catch (FileNotFoundException e) {
+            return false;
         }
     }
 
@@ -106,6 +98,11 @@ public class CredentialsHandler {
         }
     }
 
+    public static void deleteUser(String username){
+        File file = new File(currentWorkingDirectory + "/users/" + username +  ".usr");
+        file.delete();
+    }
+
     public static void signUpAsUser(User user) throws SQLException, IOException {         //This function is used to login as User by checking the user files and the user manager file
         File userFile = new File(currentWorkingDirectory + "/users/" + user.Username + ".usr");
         DatabaseHandler.generateSQLQuery("UserAccountCreation", user, "");
@@ -154,7 +151,7 @@ public class CredentialsHandler {
                 User user = (User)out.readObject();
 
                 if (user.Password.equals(password)) {
-                    currentWorkingUser = user;
+                    //currentWorkingUser = user;
                     isAdmin = false;
                     return user.CompanyName;
                 }

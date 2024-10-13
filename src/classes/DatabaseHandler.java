@@ -44,6 +44,7 @@ public class DatabaseHandler {
         conn.close();
         isConnected = false;
         url="jdbc:mysql://localhost:";
+        CredentialsHandler.isAdmin = false;
     }
 
     public static void executeDatabaseManager() throws IOException {  //This function is used to load the database manager file from local computers and synchronize databases across all remote computers
@@ -185,14 +186,29 @@ public class DatabaseHandler {
                 }
 
             case "DeleteCar":
-                rs = st.executeQuery("SELECT CAR_NAME FROM Cars WHERE CAR_ID = " + conditionInput);
-                String carName = "";
-                while(rs.next()){
-                    carName = rs.getString(1);
-                }
                 sql = "DELETE FROM Cars WHERE CAR_ID = " + conditionInput;
                 st.executeUpdate(sql);
                 updateDatabaseManager(sql + "\n");
+                return 1;
+
+            case "DeleteEmployee":
+                rs = st.executeQuery("SELECT EMP_NAME FROM Employees WHERE EMP_ID = " + conditionInput);
+                rs.next();
+                String name = rs.getString(1);
+                sql = "DELETE FROM Employees WHERE EMP_ID = " + conditionInput;
+                st.executeUpdate(sql);
+                updateDatabaseManager(sql + "\n");
+                CredentialsHandler.deleteUser(name);
+                return 1;
+
+            case "DeleteManager":
+                rs = st.executeQuery("SELECT MGR_NAME FROM Managers WHERE MGR_ID = " + conditionInput);
+                rs.next();
+                String name2 = rs.getString(1);
+                sql = "DELETE FROM Managers WHERE MGR_ID = " + conditionInput;
+                st.executeUpdate(sql);
+                updateDatabaseManager(sql + "\n");
+                CredentialsHandler.deleteUser(name2);
                 return 1;
 
             case "EraseTable":
@@ -299,9 +315,9 @@ public class DatabaseHandler {
         ObservableList<Car> cars = FXCollections.observableArrayList();
 
         if(name.equals("All"))
-            rs = st.executeQuery("SELECT * FROM Cars");
+            rs = st.executeQuery("SELECT * FROM Cars LEFT JOIN AVAILABILITY ON Cars.CAR_ID = Availability.CAR_ID");
         else
-            rs = st.executeQuery("SELECT * FROM Cars where CAR_NAME = '" + name + "'");
+            rs = st.executeQuery("SELECT * FROM Cars LEFT JOIN AVAILABILITY ON Cars.CAR_ID = Availability.CAR_ID WHERE CAR_NAME = '" + name + "'");
 
         while(rs.next()){
             Car car = new Car();
@@ -314,7 +330,10 @@ public class DatabaseHandler {
             car.FuelCapacity = rs.getString(6);
             car.Mileage = rs.getString(7);
             car.Price = rs.getString(8);
-            car.button = new Button("view");
+            car.button = new Button("VIEW");
+            car.ShowroomID = rs.getString(10);
+            car.Count = rs.getString(11);
+            System.out.println(car.Count);
 
             cars.add(car);
         }
