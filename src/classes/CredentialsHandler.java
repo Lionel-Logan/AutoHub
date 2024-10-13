@@ -5,9 +5,11 @@ import classes.exceptions.*;
 
 import java.io.*;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 public class CredentialsHandler {
     private static final String currentWorkingDirectory = Paths.get("").toAbsolutePath().toString();
+    public static boolean isAdmin = false;
 
     private static Admin currentWorkingAdmin;
     private static User currentWorkingUser;
@@ -94,6 +96,12 @@ public class CredentialsHandler {
         ObjectOutputStream in = new ObjectOutputStream(fw);
         in.writeObject(admin);
         in.close();
+
+        if(!getAdmin().Username.equals(admin.Username)){
+            File file = new File(currentWorkingDirectory + "/admins/" + getAdmin().Username + ".ad");
+            File file2 = new File(currentWorkingDirectory + "/admins/" + admin.Username + ".ad");
+            file.renameTo(file2);
+        }
     }
 
     public static void signUpAsUser(User user) {         //This function is used to login as User by checking the user files and the user manager file
@@ -119,6 +127,7 @@ public class CredentialsHandler {
 
                 if (admin.Password.equals(password)) {
                     currentWorkingAdmin = admin;
+                    isAdmin = true;
                     return admin.CompanyName;
                 }
                 else {
@@ -144,6 +153,7 @@ public class CredentialsHandler {
 
                 if (user.Password.equals(password)) {
                     currentWorkingUser = user;
+                    isAdmin = false;
                     return user.CompanyName;
                 }
                 else {

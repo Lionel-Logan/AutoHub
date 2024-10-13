@@ -35,3 +35,6 @@ INSERT INTO Showrooms VALUES (1, 'Kairali', 'Kerala', 'India', 1)
 UPDATE Showrooms SET OWNERSHIP = 'Kairali', LOCATION = 'Tamil Nadu', COUNTRY = 'India', MGR_ID = '1' WHERE SHOWROOM_ID = 1
 INSERT INTO Divisions VALUES (1, 'Sales', 1)
 TRUNCATE TABLE Divisions
+INSERT INTO Managers VALUES (2, 'Navneet', 19, 'M', 'Kochi')
+INSERT INTO Employees VALUES (1, 'Navneet', 19, 'M', 'Kochi')
+INSERT INTO Employees VALUES (2, 'Navneet', 19, 'M', 'Kochi')

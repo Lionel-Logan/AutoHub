@@ -57,9 +57,9 @@ public class DatabaseHandler {
                 st.executeUpdate(tsql = "USE " + companyName);
                 sql += tsql + "\n";
 
-                st.executeUpdate(tsql = "CREATE TABLE Managers (MGR_ID INT PRIMARY KEY, MGR_NAME VARCHAR(50), AGE INT, SEX CHAR(1), PLACE VARCHAR(50))");
+                st.executeUpdate(tsql = "CREATE TABLE Managers (MGR_ID INT PRIMARY KEY, MGR_NAME VARCHAR(50), AGE INT, SEX VARCHAR(10), PLACE VARCHAR(50))");
                 sql += tsql + "\n";
-                st.executeUpdate(tsql = "CREATE TABLE Employees (EMP_ID INT PRIMARY KEY, EMP_NAME VARCHAR(50), AGE INT, SEX CHAR(1), PLACE VARCHAR(50))");
+                st.executeUpdate(tsql = "CREATE TABLE Employees (EMP_ID INT PRIMARY KEY, EMP_NAME VARCHAR(50), AGE INT, SEX VARCHAR(10), PLACE VARCHAR(50))");
                 sql += tsql + "\n";
                 st.executeUpdate(tsql = "CREATE TABLE Showrooms (SHOWROOM_ID INT PRIMARY KEY, OWNERSHIP VARCHAR(100), LOCATION VARCHAR(50), COUNTRY VARCHAR(50), MGR_ID INT)");
                 sql += tsql + "\n";
@@ -105,7 +105,6 @@ public class DatabaseHandler {
                             sql += (char)c;
                         }
                         else{
-                            System.out.println(sql);
                             st.executeUpdate(sql);
                             sql = "";
                         }
@@ -165,6 +164,16 @@ public class DatabaseHandler {
                     return 1;
                 }
 
+            case "CheckManager":
+                sql = "SELECT MGR_ID FROM Managers";
+                rs = st.executeQuery(sql);
+                while(rs.next()){
+                    if(rs.getInt(1) == Integer.valueOf(conditionInput)){
+                        return 1;
+                    }
+                }
+                return 0;
+
             case "CheckUniqueCar":  //Returns 1 if unique
                 sql = "SELECT * FROM Cars WHERE CAR_ID = " + conditionInput;
                 rs = st.executeQuery(sql);
@@ -192,6 +201,24 @@ public class DatabaseHandler {
                 updateDatabaseManager(sql + "\n");
                 return 1;
 
+            case "RetrieveManagerID":
+                rs = st.executeQuery("SELECT MGR_ID FROM Managers");
+                int managerID = 0;
+                while(rs.next()){
+                    managerID = rs.getInt(1);
+                }
+                if(managerID == 0) return 1;
+                else return managerID + 1;
+
+            case "RetrieveUserID":
+                rs = st.executeQuery("SELECT EMP_ID FROM Employees");
+                int userID = 0;
+                while(rs.next()){
+                    userID = rs.getInt(1);
+                }
+                if(userID == 0) return 1;
+                else return userID + 1;
+
             default:
                 return -1;
         }
@@ -200,6 +227,21 @@ public class DatabaseHandler {
     public static int generateSQLQuery(String conditionString, Object obj, String conditionInput) throws SQLException, IOException { //This is the function which generates the necessary SQL Query according to the condition code passed as parameter. 1 for true, 0 for false, -1 for exception
         String sql = "";
         switch(conditionString){
+            case "UserAccountCreation":
+                User user = (User) obj;
+                if(user.IsManager){
+                    sql = "INSERT INTO Managers VALUES (" + generateSQLQuery("RetrieveManagerID", "") + ", '" + user.Username + "', " + user.Age + ", '" + user.Sex + "', '" + user.Place + "')";
+                    st.executeUpdate(sql);
+                    updateDatabaseManager(sql + "\n");
+                    return 1;
+                }
+                else{
+                    sql = "INSERT INTO Employees VALUES (" + generateSQLQuery("RetrieveUserID", "") + ", '" + user.Username + "', " + user.Age + ", '" + user.Sex + "', '" + user.Place + "')";
+                    st.executeUpdate(sql);
+                    updateDatabaseManager(sql + "\n");
+                    return 1;
+                }
+
             case "AddCar":  //Adds a car and returns 1 upon completion
                 Car car = (Car) obj;
                 sql = "INSERT INTO Cars VALUES (" + car.CarID + ", '" + car.Name + "', '" + car.CarType + "', '" + car.EngineType + "', '" + car.TransmissionType + "', '" + car.FuelCapacity + "', '" + car.Mileage + "', '" + car.Price + "')";

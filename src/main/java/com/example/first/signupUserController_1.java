@@ -55,7 +55,6 @@ public class signupUserController_1 implements Initializable{
     public void signup_user_next(ActionEvent event)throws Exception{
 
         String username = u_userfield.getText();
-        String name = u_namefield.getText();
         String password = u_passfield.getText();
         String age = u_agefield.getText();
         String residence = u_residencefield.getText();

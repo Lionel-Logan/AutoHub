@@ -4,22 +4,13 @@ import classes.CredentialsHandler;
 import classes.DatabaseHandler;
 import classes.database.*;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
-import java.util.Vector;
-import java.util.stream.Collectors;
 
 public class HelloApplication extends Application {
     @Override
@@ -60,6 +51,17 @@ public class HelloApplication extends Application {
         launch();
         CredentialsHandler.initialize();
 
+        DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
+        User user = new User();
+        user.Username = "Navneet";
+        user.Password = "bleh";
+        user.CompanyName = "Audi";
+        user.Age = "19";
+        user.Sex = "M";
+        user.Place = "Kochi";
+        user.IsManager = false;
+        DatabaseHandler.generateSQLQuery("UserAccountCreation", user, "");
+
         /*
         Admin admin = new Admin();
         admin.Username = "Logan";
@@ -67,7 +69,7 @@ public class HelloApplication extends Application {
         admin.CompanyName = "Audi";
         CredentialsHandler.updateAdmin(admin);
 
-        DatabaseHandler.connectDatabase("root", "root", "Audi", "3306");
+
         DatabaseHandler.generateSQLQuery("EraseTable", "Divisions");
 
 
