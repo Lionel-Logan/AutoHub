@@ -67,7 +67,7 @@ public class DatabaseHandler {
                 sql += tsql + "\n";
                 st.executeUpdate(tsql = "CREATE TABLE Cars (CAR_ID INT PRIMARY KEY, CAR_NAME VARCHAR(50), CAR_TYPE VARCHAR(50), ENGINE_TYPE VARCHAR(50), TRANSMISSION_TYPE VARCHAR(50), FUEL_CAPACITY VARCHAR(10), MILEAGE VARCHAR(10), PRICE VARCHAR(50))");
                 sql += tsql + "\n";
-                st.executeUpdate(tsql = "CREATE TABLE Availability (CAR_ID INT PRIMARY KEY, SHOWROOM_ID INT)");
+                st.executeUpdate(tsql = "CREATE TABLE Availability (CAR_ID INT PRIMARY KEY, SHOWROOM_ID INT, COUNT INT)");
                 sql += tsql + "\n";
 
                 st.executeUpdate(tsql = "ALTER TABLE Availability ADD FOREIGN KEY(SHOWROOM_ID) REFERENCES Showrooms(SHOWROOM_ID)");
@@ -248,6 +248,8 @@ public class DatabaseHandler {
                 st.executeUpdate(sql);
                 CredentialsHandler.initializeImageFolderFor(car.CarID, car.Name);
                 updateDatabaseManager(sql + "\n");
+                sql = "INSERT INTO Availability VALUES (" + car.CarID + ", " + car.ShowroomID + ", " + car.Count + ")";
+                updateDatabaseManager(sql + "\n");
                 return 1;
 
             case "AddShowroom":
@@ -274,6 +276,8 @@ public class DatabaseHandler {
                 sql = "UPDATE Cars SET CAR_NAME = '" + car2.Name + "', CAR_TYPE = '" + car2.CarType + "', ENGINE_TYPE = '" + car2.EngineType + "', TRANSMISSION_TYPE = '" + car2.FuelCapacity + "', FUEL_CAPACITY = '" + car2.FuelCapacity + "', MILEAGE = '" + car2.Mileage + "', PRICE = '" + car2.Price + "' WHERE CAR_ID = " + conditionInput;
                 st.executeUpdate(sql);
                 CredentialsHandler.updateImageFolderFor(conditionInput, carName, car2.Name);
+                updateDatabaseManager(sql + "\n");
+                sql = "UPDATE Availability SET SHOWROOM_ID = " + car2.ShowroomID + ", COUNT = " + car2.Count + " WHERE CAR_ID = " + conditionInput;
                 updateDatabaseManager(sql + "\n");
                 return 1;
 

@@ -12,6 +12,8 @@ public class Car {
     public String Mileage;
     public String Price;
     public Button button;
+    public String Count;
+    public String ShowroomID;
 
     // Default constructor
     public Car() {}

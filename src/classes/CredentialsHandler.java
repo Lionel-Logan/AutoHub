@@ -2,9 +2,11 @@ package classes;
 
 import classes.database.*;
 import classes.exceptions.*;
+import javafx.scene.chart.PieChart;
 
 import java.io.*;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class CredentialsHandler {
@@ -104,9 +106,9 @@ public class CredentialsHandler {
         }
     }
 
-    public static void signUpAsUser(User user) {         //This function is used to login as User by checking the user files and the user manager file
+    public static void signUpAsUser(User user) throws SQLException, IOException {         //This function is used to login as User by checking the user files and the user manager file
         File userFile = new File(currentWorkingDirectory + "/users/" + user.Username + ".usr");
-
+        DatabaseHandler.generateSQLQuery("UserAccountCreation", user, "");
         try {
             FileOutputStream fout = new FileOutputStream(userFile);
             ObjectOutputStream out = new ObjectOutputStream(fout);
