@@ -1,0 +1,22 @@
+CREATE DATABASE Mazda
+USE Mazda
+CREATE TABLE Managers (MGR_ID INT PRIMARY KEY, MGR_NAME VARCHAR(50), AGE INT, SEX VARCHAR(10), PLACE VARCHAR(50))
+CREATE TABLE Employees (EMP_ID INT PRIMARY KEY, EMP_NAME VARCHAR(50), AGE INT, SEX VARCHAR(10), PLACE VARCHAR(50))
+CREATE TABLE Showrooms (SHOWROOM_ID INT PRIMARY KEY, OWNERSHIP VARCHAR(100), LOCATION VARCHAR(50), COUNTRY VARCHAR(50), MGR_ID INT)
+CREATE TABLE Divisions (DIVISION_ID INT PRIMARY KEY, DIVISION_NAME VARCHAR(50), MGR_ID INT)
+CREATE TABLE Cars (CAR_ID INT PRIMARY KEY, CAR_NAME VARCHAR(50), CAR_TYPE VARCHAR(50), ENGINE_TYPE VARCHAR(50), TRANSMISSION_TYPE VARCHAR(50), FUEL_CAPACITY VARCHAR(100), MILEAGE VARCHAR(100), PRICE VARCHAR(50))
+CREATE TABLE Availability (CAR_ID INT PRIMARY KEY, SHOWROOM_ID INT, COUNT INT)
+ALTER TABLE Availability ADD FOREIGN KEY(SHOWROOM_ID) REFERENCES Showrooms(SHOWROOM_ID) ON DELETE SET NULL
+ALTER TABLE Showrooms ADD FOREIGN KEY(MGR_ID) REFERENCES Managers(MGR_ID) ON DELETE SET NULL
+ALTER TABLE Divisions ADD FOREIGN KEY(MGR_ID) REFERENCES Managers(MGR_ID) ON DELETE SET NULL
+ALTER TABLE Availability ADD FOREIGN KEY(CAR_ID) REFERENCES Cars(CAR_ID)
+INSERT INTO Managers (MGR_ID, MGR_NAME, AGE, SEX, PLACE) VALUES (1, 'John Doe', 45, 'Male', 'Tokyo'),(2, 'Jane Smith', 38, 'Female', 'Osaka'),(3, 'Robert Brown', 50, 'Male', 'Kyoto'),(4, 'Emily Davis', 42, 'Female', 'Hiroshima'),(5, 'Michael Wilson', 37, 'Male', 'Nagoya')
+INSERT INTO Employees (EMP_ID, EMP_NAME, AGE, SEX, PLACE) VALUES (1, 'Alice Johnson', 28, 'Female', 'Tokyo'),(2, 'Chris Lee', 30, 'Male', 'Osaka'),(3, 'Patricia Garcia', 25, 'Female', 'Kyoto'),(4, 'David Martinez', 32, 'Male', 'Hiroshima'),(5, 'Sarah Wilson', 29, 'Female', 'Nagoya')
+INSERT INTO Showrooms (SHOWROOM_ID, OWNERSHIP, LOCATION, COUNTRY, MGR_ID) VALUES (1, 'Mazda Japan', 'Shinjuku', 'Japan', 1),(2, 'Mazda Osaka', 'Namba', 'Japan', 2),(3, 'Mazda Kyoto', 'Shijo', 'Japan', 3),(4, 'Mazda Hiroshima', 'Naka', 'Japan', 4),(5, 'Mazda Nagoya', 'Sakae', 'Japan', 5)
+INSERT INTO Divisions (DIVISION_ID, DIVISION_NAME, MGR_ID) VALUES (1, 'Sales Division', 1),(2, 'Service Division', 2),(3, 'Marketing Division', 3),(4, 'Research Division', 4),(5, 'Finance Division', 5)
+INSERT INTO Cars (CAR_ID, CAR_NAME, CAR_TYPE, ENGINE_TYPE, TRANSMISSION_TYPE, FUEL_CAPACITY, MILEAGE, PRICE) VALUES (1, 'Mazda CX-5', 'SUV', 'Skyactiv-G 2.5', 'Automatic', '14.8 gallons', '26 MPG', '$25,000'),(2, 'Mazda3', 'Sedan', 'Skyactiv-G 2.0', 'Automatic', '13.2 gallons', '30 MPG', '$20,000'),(3, 'Mazda MX-5 Miata', 'Convertible', 'Skyactiv-G 2.0', 'Manual', '11.9 gallons', '35 MPG', '$28,000'),(4, 'Mazda CX-30', 'Crossover', 'Skyactiv-G 2.5', 'Automatic', '15.3 gallons', '31 MPG', '$23,000'),(5, 'Mazda6', 'Sedan', 'Skyactiv-G 2.5', 'Automatic', '14.8 gallons', '27 MPG', '$24,000')
+INSERT INTO Availability (CAR_ID, SHOWROOM_ID, COUNT) VALUES (1, 1, 10),(2, 2, 15),(3, 3, 5),(4, 4, 8),(5, 5, 12)
+INSERT INTO Employees VALUES (6, 'Satya', 20, 'female', 'Kochi')
+INSERT INTO Managers VALUES (6, 'Sanju', 21, 'male', 'Kochi')
+DELETE FROM Managers WHERE MGR_ID = 6
+DELETE FROM Employees WHERE EMP_ID = 6

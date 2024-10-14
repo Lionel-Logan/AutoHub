@@ -1,6 +1,4 @@
 .root{
-    /*-fx-background-image: url('videoplayback_2k_10s.gif');
-    */
-    -fx-background-image: url('carTire.jpg');
+    -fx-background-image: url('videoplayback_2k_10s.gif');
     -fx-background-size:cover;
 }
