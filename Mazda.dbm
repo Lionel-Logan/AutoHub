@@ -33,3 +33,4 @@ DELETE FROM Cars WHERE CAR_ID = 5
 DELETE FROM Managers WHERE MGR_ID = 5
 UPDATE Cars SET CAR_NAME = 'Thayoli', CAR_TYPE = 'Racecar', ENGINE_TYPE = 'Skyactiv-G 2.0', TRANSMISSION_TYPE = 'Automatic', FUEL_CAPACITY = '13.2 gallons', MILEAGE = '30 MPG', PRICE = '$20,000' WHERE CAR_ID = 2
 UPDATE Availability SET SHOWROOM_ID = 2, COUNT = 15 WHERE CAR_ID = 2
+INSERT INTO Managers VALUES (7, 'Smiya', 20, 'female', 'Kerala')
