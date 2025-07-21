@@ -171,7 +171,14 @@ AutoHub implements a proprietary Database Manager file system:
 - **Mobile Application**: iOS and Android companion apps
 - **API Integration**: RESTful API for third-party integrations
 - **Advanced Analytics**: Business intelligence and predictive analytics
-- **Cloud Synchronization**: Multi-location cloud-based data synchronization
+- **Cloud Synchronization**: Multi-location cloud-based data synchronization'
+
+## Screenshots
+
+<img width="475" height="719" alt="Screenshot 2024-10-07 001657" src="https://github.com/user-attachments/assets/c55ab095-a332-4f44-a17f-90b3dfa43877" />
+<img width="1351" height="858" alt="Screenshot 2024-10-07 012208" src="https://github.com/user-attachments/assets/ca689eb0-38ed-4ea4-86a4-c22a2dcd9961" />
+<img width="1350" height="862" alt="Screenshot 2024-10-07 012314" src="https://github.com/user-attachments/assets/8dbf207d-02ef-45a0-b50a-ff5022dadb9c" />
+<img width="1350" height="862" alt="Screenshot 2024-10-07 012314" src="https://github.com/user-attachments/assets/4629efc6-ce5b-4643-83e8-f95ad578ecb0" />
 
 ## 📞 Support
 
