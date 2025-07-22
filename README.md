@@ -175,10 +175,12 @@ AutoHub implements a proprietary Database Manager file system:
 
 ## Screenshots
 
-<img width="475" height="719" alt="Screenshot 2024-10-07 001657" src="https://github.com/user-attachments/assets/c55ab095-a332-4f44-a17f-90b3dfa43877" />
+<img width="400" height="600" alt="Screenshot 2024-10-07 001657" src="https://github.com/user-attachments/assets/c55ab095-a332-4f44-a17f-90b3dfa43877" />
+<img width="400" height="600" alt="Authentication ss" src="https://github.com/user-attachments/assets/389ad569-7762-48e8-8559-13cde64e6958" />
+
 <img width="1351" height="858" alt="Screenshot 2024-10-07 012208" src="https://github.com/user-attachments/assets/ca689eb0-38ed-4ea4-86a4-c22a2dcd9961" />
 <img width="1350" height="862" alt="Screenshot 2024-10-07 012314" src="https://github.com/user-attachments/assets/8dbf207d-02ef-45a0-b50a-ff5022dadb9c" />
-<img width="1350" height="862" alt="Screenshot 2024-10-07 012314" src="https://github.com/user-attachments/assets/4629efc6-ce5b-4643-83e8-f95ad578ecb0" />
+<img width="1350" height="862" alt="Dashboard ss" src="https://github.com/user-attachments/assets/a423ad2d-9ee4-413f-97cf-5d508796ba67" />
 
 ## 📞 Support
 
